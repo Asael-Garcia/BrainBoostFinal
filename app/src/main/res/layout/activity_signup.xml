@@ -27,7 +27,7 @@
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/inputform"
             android:ems="15"
             android:fontFamily="@font/poppins"
@@ -40,10 +40,32 @@
             android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins"
             android:paddingLeft="10dp"
-            android:text="Nombre" />
+            android:text="Nombre(s)" />
+
+        <TextView
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="90dp"
+            android:fontFamily="@font/poppins"
+            android:paddingLeft="10dp"
+            android:text="Apellidos" />
+        <EditText
+            android:id="@+id/lastName"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="120dp"
+            android:background="@drawable/inputform"
+            android:ems="15"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:inputType="text"
+            android:selectAllOnFocus="false"
+            android:singleLine="false" />
 
         <TextView
             android:layout_width="360dp"
@@ -72,8 +94,8 @@
             android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="270dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginTop="250dp"
+            android:fontFamily="@font/poppins"
             android:paddingLeft="10dp"
             android:text="Contraseña" />
 
@@ -82,7 +104,7 @@
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="280dp"
             android:background="@drawable/inputform"
             android:ems="15"
             android:fontFamily="@font/poppins"

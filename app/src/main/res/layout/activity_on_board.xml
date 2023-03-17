@@ -22,7 +22,7 @@
         android:layout_width="198dp"
         android:layout_height="106dp"
         android:layout_marginTop="48dp"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/poppins_medium"
         android:text="Varias pruebas de cursos gratuitos"
         android:textAlignment="center"
         android:textColor="#1F1F39"

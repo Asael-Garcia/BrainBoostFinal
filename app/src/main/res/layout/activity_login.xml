@@ -24,9 +24,9 @@
             android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:paddingLeft="10dp"
             android:layout_marginTop="70dp"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins_medium"
+            android:paddingLeft="10dp"
             android:text="Correo" />
 
         <EditText
@@ -56,12 +56,12 @@
             android:id="@+id/password"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:gravity="center"
-            android:background="@drawable/inputform"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="250dp"
+            android:background="@drawable/inputform"
             android:ems="15"
             android:fontFamily="@font/poppins"
+            android:gravity="center"
             android:inputType="textPassword" />
 
         <Button

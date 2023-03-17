@@ -4,60 +4,56 @@ import android.util.Patterns;
 import android.widget.Toast;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-import okhttp3.*;
 
 import java.util.regex.Pattern;
 
-public interface LoginApiService{
+interface LoginApiService{
     @FormUrlEncoded
-    @POST("signup")
-    Call<SimpleResponse> signUp(
-            @Field("email") String email,
-            @Field("first_name") String first_name,
-            @Field("last_name") String last_name,
-            @Field("password") String password
+    @POST("/signup")
+    Call <LoginRequests.SignupResponse> signUp(
+            @Body LoginRequests.SignupBody body
     );
 }
 
 public class LoginHelper {
     private static LoginApiService API_SERVICE;
-    private static final String BASE_URL = "ruta";
+    private static final String BASE_URL = "http://172.21.249.99:8000";
+    public void signUp (android.content.Context context, String email, String password, String first_name, String last_name) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        LoginApiService loginApiService = retrofit.create(LoginApiService.class);
+        if (validateAll(context, password, last_name, first_name, email)) {
+            Call<LoginRequests.SignupResponse> call = loginApiService.signUp(new LoginRequests.SignupBody(email, password, first_name, last_name));
+            call.enqueue(new Callback<LoginRequests.SignupResponse>() {
+                @Override
+                public void onResponse(Call<LoginRequests.SignupResponse> call, Response<LoginRequests.SignupResponse> response) {
 
-    public static LoginApiService getApiService(){
-        // Creamos un interceptor y le indicamos el log level a usar
-        final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-
-        // Asociamos el interceptor a las peticiones
-        final OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        httpClient.addInterceptor(logging);
-
-        if (API_SERVICE == null) {
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .client(httpClient.build()) // <-- set log level
-                    .build();
-
-            API_SERVICE = retrofit.create(LoginApiService.class);
+                }
+                @Override
+                public void onFailure(Call<LoginRequests.SignupResponse> call, Throwable t) {
+                    Toast.makeText(context, "Error al loggear", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
-
-        return API_SERVICE;
+        return ;
     }
-    }
-
     // validación del email
     private boolean validarEmail(String email) {
         Pattern pattern = Patterns.EMAIL_ADDRESS;
         return pattern.matcher(email).matches();
     }
-
-
     /*
 ASI SE HACE LA LLAMADA EN EL MAIN PARA EL METODO validateName
 String username = usernameEditText.getText().toString();
@@ -65,7 +61,7 @@ if (validateName(username)) {
     // continuar con el registro del usuario
 }
  */
-    public boolean validateName(android.content.Context ctx, String first_name) {
+    private boolean validateName(android.content.Context ctx, String first_name) {
         if (first_name.isEmpty()) {
             Toast.makeText(ctx, "Por favor, ingrese un nombre de usuario", Toast.LENGTH_SHORT).show();
             return false;
@@ -76,7 +72,7 @@ if (validateName(username)) {
         return true;
     }
 
-    public boolean validateLastName(android.content.Context ctx, String last_name) {
+    private boolean validateLastName(android.content.Context ctx, String last_name) {
         if (last_name.isEmpty()) {
             Toast.makeText(ctx, "Por favor, ingrese un apellido para tu usuario", Toast.LENGTH_SHORT).show();
             return false;
@@ -87,7 +83,7 @@ if (validateName(username)) {
         return true;
     }
 
-    public boolean validatePassword(android.content.Context ctx, String password) {
+    private boolean validatePassword(android.content.Context ctx, String password) {
         if (password.length() < 8) {
             Toast.makeText(ctx, "La contraseña es demasiado corta", Toast.LENGTH_SHORT).show();
             return false;
@@ -99,7 +95,7 @@ if (validateName(username)) {
         return true;
     }
 
-    public boolean llamarTodo(android.content.Context ctx, String password, String last_name, String first_name, String email){
+    private boolean validateAll(android.content.Context ctx, String password, String last_name, String first_name, String email){
         if (!this.validarEmail(email)) return false;
         if (!this.validateName(ctx, first_name)) return false;
         if (!this.validateLastName(ctx, last_name)) return false;

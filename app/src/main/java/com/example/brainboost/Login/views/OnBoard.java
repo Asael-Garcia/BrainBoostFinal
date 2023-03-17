@@ -79,13 +79,20 @@ public class OnBoard extends AppCompatActivity {
     }
 
     public void log(View view){
+        Toast toast1 = Toast.makeText(this, "Presionado antes del intent", Toast.LENGTH_LONG);
+        toast1.show();
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
+        Toast toast = Toast.makeText(this, "Presionado despues del intent", Toast.LENGTH_LONG);
+        toast.show();
     }
     public void signUp(View view){
-        Intent intent = new Intent(this, Signup.class);
+        Toast toast1 = Toast.makeText(this, "Presionado antes del intent", Toast.LENGTH_LONG);
+        toast1.show();
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
-
+        Toast toast = Toast.makeText(this, "Presionado despues del intent", Toast.LENGTH_LONG);
+        toast.show();
     }
 
 

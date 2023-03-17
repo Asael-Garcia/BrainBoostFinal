@@ -18,10 +18,13 @@ import retrofit2.http.POST;
 import java.util.regex.Pattern;
 
 interface LoginApiService{
-    @FormUrlEncoded
     @POST("/signup")
     Call <LoginRequests.SignupResponse> signUp(
             @Body LoginRequests.SignupBody body
+    );
+    @POST("/login")
+    Call <LoginRequests.LoginResponse> login(
+            @Body LoginRequests.LoginBody body
     );
 }
 
@@ -102,7 +105,4 @@ if (validateName(username)) {
         if (!this.validatePassword(ctx, password)) return false;
         return true;
     }
-
-
-
 }

@@ -8,6 +8,7 @@ class SignupData {
     public String type;
 }
 
+
 public class LoginRequests {
     public static class SignupResponse {
         public SignupData data;
@@ -23,5 +24,16 @@ public class LoginRequests {
             this.first_name = first_name;
             this.last_name = last_name;
         }
+    }
+    public  static class LoginBody {
+        final String email;
+        final String password;
+        public LoginBody(String email, String password){
+            this.email = email;
+            this.password = password;
+        }
+    }
+    public static class LoginResponse {
+        public boolean logged;
     }
 }

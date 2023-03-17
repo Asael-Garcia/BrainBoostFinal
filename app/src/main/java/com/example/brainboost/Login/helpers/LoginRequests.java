@@ -28,7 +28,7 @@ public class LoginRequests {
     public  static class LoginBody {
         final String email;
         final String password;
-        public LoginBody(String email, String password){
+        public LoginBody(String email){
             this.email = email;
             this.password = password;
         }

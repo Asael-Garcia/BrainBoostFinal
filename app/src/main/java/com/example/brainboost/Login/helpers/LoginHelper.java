@@ -3,8 +3,6 @@ package com.example.brainboost.Login.helpers;
 import android.util.Patterns;
 import android.widget.Toast;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -15,6 +13,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
+import java.io.StringReader;
 import java.util.regex.Pattern;
 
 interface LoginApiService{
@@ -31,6 +30,29 @@ interface LoginApiService{
 public class LoginHelper {
     private static LoginApiService API_SERVICE;
     private static final String BASE_URL = "http://172.21.249.99:8000";
+
+    public void login(android.content.Context context, String email){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        LoginApiService loginApiService = retrofit.create(LoginApiService.class);
+        if (validarEmail(email)){
+            Call<LoginRequests.LoginResponse> call = loginApiService.login(new LoginRequests.LoginBody(email));
+            call.enqueue(new Callback<LoginRequests.LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginRequests.LoginResponse> call, Response<LoginRequests.LoginResponse> response) {
+
+                }
+
+                @Override
+                public void onFailure(Call<LoginRequests.LoginResponse> call, Throwable t) {
+                    Toast.makeText(context, "Error al loggear", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
     public void signUp (android.content.Context context, String email, String password, String first_name, String last_name) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)

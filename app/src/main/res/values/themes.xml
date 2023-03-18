@@ -3,7 +3,7 @@
     <style name="Theme.BrainBoost" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -15,8 +15,8 @@
 
     </style>
     <style name="BottomNavigation">
-        <item name="android:background">@color/green_dark</item>
-        <item name="itemIconTint">@color/green_light_2</item>
-        <item name="itemTextColor">@color/green_light</item>
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@color/blue</item>
+        <item name="itemTextColor">@color/blue</item>
     </style>
 </resources>

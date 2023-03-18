@@ -1,6 +1,5 @@
 package com.example.brainboost.Login.fragments;
 
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,32 +7,26 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.example.brainboost.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FirstFragment#newInstance} factory method to
+ * Use the {@link FourFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FirstFragment extends Fragment {
+public class FourFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    ImageView user;
-    ImageView cardgirl;
-    ImageView cardboy;
-    ImageView carddone;
-    ImageView metup;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public FirstFragment() {
+    public FourFragment() {
         // Required empty public constructor
     }
 
@@ -43,11 +36,11 @@ public class FirstFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FirstFragment.
+     * @return A new instance of fragment FourFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FirstFragment newInstance(String param1, String param2) {
-        FirstFragment fragment = new FirstFragment();
+    public static FourFragment newInstance(String param1, String param2) {
+        FourFragment fragment = new FourFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,27 +55,12 @@ public class FirstFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_first, container, false);
-        //se toman las imagenes
-        user= (ImageView) view.findViewById(R.id.imageUser);
-        cardgirl= (ImageView) view.findViewById(R.id.cardgirl);
-        cardboy= (ImageView) view.findViewById(R.id.cardboy);
-        carddone= (ImageView) view.findViewById(R.id.carddone);
-        metup= (ImageView) view.findViewById(R.id.metup);
-        //se cargan las imagenes
-        user.setImageResource(R.drawable.avatar);
-        cardgirl.setImageResource(R.drawable.cardgirl);
-        cardboy.setImageResource(R.drawable.cardboy);
-        carddone.setImageResource(R.drawable.carddone);
-        metup.setImageResource(R.drawable.metup);
-        return view;
+        return inflater.inflate(R.layout.fragment_four, container, false);
     }
 }

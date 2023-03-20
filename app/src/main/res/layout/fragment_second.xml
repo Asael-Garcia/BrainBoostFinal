@@ -4,16 +4,144 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login.fragments.SecondFragment">
+    <!--Curso e icono de usuario-->
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Cursos"
+          android:fontFamily="@font/poppins_semibold"
+          android:textSize="24sp"
+          android:layout_weight="1"
+          android:textColor="#1F1F39"
+          android:layout_marginTop="35dp"
+          android:layout_marginLeft="15dp"/>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+      <ImageView
+          android:id="@+id/imageUser"
+          android:layout_width="35dp"
+          android:layout_height="35dp"
+          android:layout_marginTop="35dp"
+          android:layout_marginRight="10dp"
+          tools:src="@tools:sample/avatars" />
+  </LinearLayout>
+    <!--Barra de busqueda-->
+    <LinearLayout
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-black"
-        android:textColor="@color/green_normal"
-        android:textSize="40sp"
-        android:text="Segundo" />
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.SearchView
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:backgroundTint="#F4F3FD"
+            android:background="@drawable/cards"
+            android:iconifiedByDefault="false"
+            android:queryHint="Buscar"
+            android:text="Buscar"
+           />
+    </LinearLayout>
+
+    <!--Carrusel de imagenes con categorias-->
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:scrollbars="none">
+        <!--Linear layout carrucel de recomendados-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <FrameLayout
+                        android:layout_marginLeft="30dp"
+                        android:layout_width="250dp"
+                        android:layout_height="140dp"
+                        android:background="@drawable/cards"
+                        android:backgroundTint="#CEECFE">
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_width="129dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#1F1F39"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Cursos recomendados"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:layout_width="112dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="80dp"
+                            android:backgroundTint="#FF6905"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Comenzemos"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+
+                        <ImageView
+
+                            android:id="@+id/cardgirl"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_marginLeft="130dp"
+                            android:layout_marginTop="10dp"
+                            tools:src="@drawable/cardgirl" />
+                    </FrameLayout>
+
+
+                    <FrameLayout
+                        android:layout_marginLeft="30dp"
+                        android:layout_width="250dp"
+                        android:layout_height="140dp"
+                        android:background="@drawable/cards"
+                        android:backgroundTint="#CEECFE">
+
+
+                        <ImageView
+                            android:id="@+id/cardboy"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            tools:src="@drawable/cardboy" />
+
+                        <ImageView
+
+                            android:id="@+id/carddone"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:src="@drawable/carddone"/>
+                    </FrameLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+            <!--Todos los cursos que tenemos-->
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
 
 </FrameLayout>

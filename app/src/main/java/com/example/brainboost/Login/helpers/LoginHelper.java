@@ -1,5 +1,6 @@
 package com.example.brainboost.Login.helpers;
 
+import android.content.SharedPreferences;
 import android.util.Patterns;
 import android.widget.Toast;
 
@@ -74,6 +75,15 @@ public class LoginHelper {
         }
         return ;
     }
+
+    public void saveId(android.content.Context ctx){
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", ctx.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("userID", id);
+        editor.commit();
+    }
+
+
     // validación del email
     private boolean validarEmail(String email) {
         Pattern pattern = Patterns.EMAIL_ADDRESS;

@@ -77,7 +77,7 @@ public class LoginHelper {
     }
 
     public void saveId(android.content.Context ctx){
-        SharedPreferences preferences = getSharedPreferences("MyPrefs", ctx.MODE_PRIVATE);
+        SharedPreferences preferences = ctx.getSharedPreferences("MyPrefs", ctx.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("userID", id);
         editor.commit();

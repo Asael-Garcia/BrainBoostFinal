@@ -1,8 +1,12 @@
 package com.example.brainboost.Login.helpers;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Patterns;
 import android.widget.Toast;
+
+import com.example.brainboost.Login.views.Signup;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -10,11 +14,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-import java.io.StringReader;
 import java.util.regex.Pattern;
 
 interface LoginApiService{
@@ -30,9 +31,9 @@ interface LoginApiService{
 
 public class LoginHelper {
     private static LoginApiService API_SERVICE;
-    private static final String BASE_URL = "http://172.21.249.99:8000";
+    private static final String BASE_URL = "http://172.30.67.224:8000";
 
-    public void login(android.content.Context context, String email){
+    public void login(Context context, String email){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -76,11 +77,38 @@ public class LoginHelper {
         return ;
     }
 
-    public void saveId(android.content.Context ctx){
+    public void saveId(android.content.Context ctx, String id){
         SharedPreferences preferences = ctx.getSharedPreferences("MyPrefs", ctx.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("userID", id);
         editor.commit();
+    }
+
+    public boolean isLogged(android.content.Context ctx){
+        // Almacena la variable de sesión
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("loggedIn", true);
+        editor.apply();
+
+        // Verificar la variable de sesión en la pantalla de inicio
+        boolean isLoggedIn = sharedPreferences.getBoolean("loggedIn", false);
+        if (isLoggedIn) {
+            // Muestra un mensaje indicando que ya tiene una sesión activa
+            //inten para redirigir al dashboard
+            Toast.makeText(ctx, "Ya ha iniciado sesión", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ctx, Signup.class);
+            ctx.startActivity(intent);
+            return true;
+        }
+        else {
+            //intent para redirigir al sign up
+            Toast.makeText(ctx, "No estas logeado, primero crea una cuenta", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ctx, Home.class);
+            ctx.startActivity(intent);
+            return false;
+        }
+
     }
 
 

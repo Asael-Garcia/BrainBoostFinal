@@ -4,12 +4,131 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Account.fragments.editAccount"
-    android:background="@color/black">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regresar"
+            android:textSize="25sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="#1F1F39"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="140dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textSize="18sp"
+                android:textColor="#1F1F39"
+                android:fontFamily="@font/poppins_medium"/>
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/inputform"
+                android:fontFamily="@font/poppins"
+                android:gravity="left"
+                android:inputType="text"
+                android:selectAllOnFocus="false"
+                android:singleLine="false"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Apellido"
+            android:textSize="18sp"
+            android:textColor="#1F1F39"
+            android:fontFamily="@font/poppins_medium"/>
+        <EditText
+            android:id="@+id/lastName"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/inputform"
+            android:fontFamily="@font/poppins"
+            android:gravity="left"
+            android:inputType="text"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Correo"
+            android:textSize="18sp"
+            android:textColor="#1F1F39"
+            android:fontFamily="@font/poppins_medium"/>
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/inputform"
+            android:fontFamily="@font/poppins"
+            android:gravity="left"
+            android:inputType="text"
+            android:selectAllOnFocus="false"
+            android:editable="false"
+            android:singleLine="false"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contraseña"
+            android:textSize="18sp"
+            android:textColor="#1F1F39"
+            android:fontFamily="@font/poppins_medium"/>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/inputform"
+            android:fontFamily="@font/poppins"
+            android:gravity="left"
+            android:inputType="text"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"/>
+
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/save"
+                android:layout_marginLeft="20dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppins"
+                android:background="@drawable/cards"
+                android:text="Guardar"/>
+            <Button
+                android:id="@+id/cancel"
+                android:layout_marginLeft="60dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF6905"
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppins"
+                android:background="@drawable/cards"
+                android:text="Cancelar"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
 
 </FrameLayout>

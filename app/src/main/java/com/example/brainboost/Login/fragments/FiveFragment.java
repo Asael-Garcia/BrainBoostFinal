@@ -67,19 +67,8 @@ public class FiveFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_five, container, false);
-        LinearLayout thing=view.findViewById(R.id.thing);
-        thing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context=getContext();
-                Intent intento = new Intent(getActivity(), seeCourses.class);
-                startActivity(intento);
-            }
-        });
+
         return view;
     }
 
-    public void change(View view){
-
-    }
 }

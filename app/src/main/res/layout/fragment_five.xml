@@ -43,7 +43,6 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/poppins_medium"
-                android:onClick="change"
                 android:text="Favoritos"
                 android:textAlignment="textStart"
                 android:textAllCaps="false"

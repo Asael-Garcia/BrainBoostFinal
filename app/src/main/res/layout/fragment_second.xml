@@ -136,10 +136,12 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="320dp">
+        android:layout_height="match_parent"
+        android:layout_marginTop="320dp"
+      >
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -202,10 +204,10 @@
             </RadioGroup>
 
             <FrameLayout
+                android:id="@+id/nameCourse"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
-
                 android:backgroundTint="@color/black">
 
                 <ImageView
@@ -343,7 +345,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
-
+                android:layout_marginBottom="120dp"
                 android:backgroundTint="@color/black">
 
                 <ImageView

@@ -1,5 +1,7 @@
 package com.example.brainboost.Login.fragments;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,7 +9,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
+import com.example.brainboost.Courses.views.seeCourses;
 import com.example.brainboost.R;
 
 /**
@@ -59,8 +64,19 @@ public class SecondFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        View view = inflater.inflate(R.layout.fragment_second, container, false);
+        FrameLayout thing=view.findViewById(R.id.nameCourse);
+        thing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context=getContext();
+                Intent intento = new Intent(getActivity(), seeCourses.class);
+                startActivity(intento);
+            }
+        });
+        return view;
     }
 }

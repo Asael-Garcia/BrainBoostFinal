@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="change"
     tools:context=".Login.fragments.FiveFragment">
 
     <LinearLayout
@@ -15,12 +14,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="20dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginTop="50dp"
             android:text="Cuenta"
             android:textColor="#1F1F39"
-            android:textSize="24sp" />
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginRight="20dp"
+            android:textSize="30sp"
+            />
 
         <ImageView
             android:layout_width="100dp"
@@ -30,44 +30,50 @@
             android:src="@drawable/avatar" />
 
         <LinearLayout
+            android:id="@+id/favorites"
             android:layout_width="match_parent"
-            android:id="@+id/thing"
-            android:layout_height="wrap_content"
+
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Favoritos"
-                android:textAlignment="textStart"
+
                 android:textAllCaps="false"
                 android:textColor="#1F1F39" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="center|end"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/poppins"
                 android:text=">"
+
                 android:textColor="#858597"
                 android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/editAccount"
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
@@ -80,7 +86,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="center|end"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/poppins"
                 android:text=">"
@@ -89,14 +95,16 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/settings"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
@@ -109,7 +117,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="center|end"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/poppins"
                 android:text=">"
@@ -118,14 +126,17 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/help"
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
@@ -138,7 +149,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="center|end"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/poppins"
                 android:text=">"

@@ -11,9 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.brainboost.Account.views.account;
 import com.example.brainboost.Courses.views.seeCourses;
 import com.example.brainboost.Login.views.Home;
 import com.example.brainboost.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +33,7 @@ public class FiveFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    ArrayList <LinearLayout> things= new ArrayList<>();
 
     public FiveFragment() {
         // Required empty public constructor
@@ -67,6 +71,27 @@ public class FiveFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_five, container, false);
+        LinearLayout favorites=view.findViewById(R.id.favorites);
+        LinearLayout editAccount=view.findViewById(R.id.editAccount);
+        LinearLayout settings=view.findViewById(R.id.settings);
+        LinearLayout help=view.findViewById(R.id.help);
+
+        things.add(favorites);
+        things.add(editAccount);
+        things.add(settings);
+        things.add(help);
+        for(int i=0;i<4;i++){
+            int auxiliar=i;
+            things.get(i).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intento = new Intent(getActivity(), account.class);
+                    intento.putExtra("key",auxiliar);
+                    startActivity(intento);
+                }
+            });
+        }
+
 
         return view;
     }

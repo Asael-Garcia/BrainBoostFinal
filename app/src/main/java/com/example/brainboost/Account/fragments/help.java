@@ -7,8 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 
 import com.example.brainboost.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +68,26 @@ public class help extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_help, container, false);
+        View view = inflater.inflate(R.layout.fragment_help, container, false);
+        Map<String, List<String>> expandableListDetail = new HashMap<>();
+        List<String> cricket = new ArrayList<>();
+        cricket.add("India");
+        cricket.add("Pakistan");
+        cricket.add("Australia");
+        cricket.add("England");
+        List<String> football = new ArrayList<>();
+        football.add("Brazil");
+        football.add("Spain");
+        football.add("Germany");
+        football.add("Netherlands");
+        expandableListDetail.put("CRICKET TEAMS", cricket);
+        expandableListDetail.put("FOOTBALL TEAMS", football);
+        //ExpandableListAdapter adapter = ExpandableListAdapter(getContext(),)
+        //MyExpandableListAdapter adapter = new MyExpandableListAdapter(context, expandableListTitle, expandableListDetail);
+        //ExpandableListView myExpandableListView = (ExpandableListView) view.findViewById(R.id.questions);
+        //myExpandableListView.setAdapter(adapter);
+
+
+        return view;
     }
 }

@@ -4,12 +4,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Account.fragments.help"
-    android:background="@color/purple_200">
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Cursos"
+            android:textColor="#1F1F39"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_weight="1"
+            android:textSize="30sp"
+            />
+        <ScrollView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ExpandableListView
+                    android:id="@+id/questions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                </ExpandableListView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
 </FrameLayout>

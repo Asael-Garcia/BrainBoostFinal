@@ -74,7 +74,7 @@
 
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/poppins_medium"
-            android:onClick="lance"
+            android:onClick="sendData"
             android:text="Iniciar Sesión"
             android:textAllCaps="false">
 

@@ -30,8 +30,6 @@ public class Login extends AppCompatActivity {
         String emailValue = email.getText().toString();
         String passwordValue = password.getText().toString();
         helper.login(this, emailValue, passwordValue);
-        Toast toast = Toast.makeText(this, "listo, datos enviados", Toast.LENGTH_LONG);
-        toast.show();
         Intent intento = new Intent(this, Home.class);
         startActivity(intento);
     }

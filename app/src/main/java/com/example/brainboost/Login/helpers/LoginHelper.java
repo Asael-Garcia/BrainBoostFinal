@@ -15,11 +15,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-import java.io.StringReader;
 import java.util.regex.Pattern;
 
 interface LoginApiService{
@@ -50,6 +47,7 @@ public class LoginHelper {
                 public void onResponse(Call<LoginRequests.LoginResponse> call, Response<LoginRequests.LoginResponse> response) {
                   if(response.body().logged){
                     saveId(context, response.body().id);
+                      Toast.makeText(context, response.body().id, Toast.LENGTH_SHORT).show();
                   }
                 }
                 @Override

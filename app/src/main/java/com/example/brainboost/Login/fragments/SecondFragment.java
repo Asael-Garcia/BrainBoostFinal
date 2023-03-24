@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.brainboost.Courses.views.seeCourses;
 import com.example.brainboost.R;
@@ -32,6 +37,11 @@ public class SecondFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    FrameLayout thing;
+    RadioGroup radioGroup;
+    RadioButton radioButton;
+    RadioButton aux;
+    Drawable drawable;
 
     public SecondFragment() {
         // Required empty public constructor
@@ -70,7 +80,9 @@ public class SecondFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_second, container, false);
-        FrameLayout thing=view.findViewById(R.id.nameCourse);
+        thing= view.findViewById(R.id.nameCourse);
+        radioGroup= view.findViewById(R.id.radioCourse);
+
 
         //para cambiar de pantalla
         thing.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +115,41 @@ public class SecondFragment extends Fragment {
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 return true;
+            }
+        });
+
+        //para cambiar lo del fragment de radiogrouo:
+
+        int radioButtonId = radioGroup.getCheckedRadioButtonId();
+        int color = Color.parseColor("#3D5CFF");
+        int white = Color.parseColor("#FF0000");
+        drawable=radioButton.getButtonDrawable();
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == -1) {
+                    // Ningún RadioButton está seleccionado
+                    Toast toast = Toast.makeText(getContext(), "nada esta seleccionado", Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
+                     radioButton = view.findViewById(checkedId);
+                    // radioButton es el RadioButton seleccionado
+                    if (radioButton.getText()=="Todos"){
+                        aux = view.findViewById(R.id.myCourses);
+                        aux.setBackgroundColor(white);
+                        radioButton.setBackground(drawable);
+                        radioButton.setBackgroundColor(color);
+                    }else {
+                        aux = view.findViewById(R.id.all);
+                        aux.setBackgroundColor(white);
+                        radioButton.setBackground(drawable);
+                        radioButton.setBackgroundColor(color);
+
+
+                    }
+                    Toast toast = Toast.makeText(getContext(), radioButton.getText()+"", Toast.LENGTH_LONG);
+                    toast.show();
+                }
             }
         });
 

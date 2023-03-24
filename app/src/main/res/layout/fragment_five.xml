@@ -157,6 +157,39 @@
                 android:textSize="15sp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/close"
+
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Cerrar sesión"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="#1F1F39" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/poppins"
+                android:text=">"
+                android:textColor="#858597"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </FrameLayout>

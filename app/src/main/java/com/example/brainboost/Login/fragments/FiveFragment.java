@@ -24,6 +24,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class FiveFragment extends Fragment {
+    Intent intento;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,17 +81,35 @@ public class FiveFragment extends Fragment {
         things.add(editAccount);
         things.add(settings);
         things.add(help);
-        for(int i=0;i<4;i++){
-            int auxiliar=i;
-            things.get(i).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intento = new Intent(getActivity(), account.class);
-                    intento.putExtra("key",auxiliar);
-                    startActivity(intento);
-                }
-            });
-        }
+        intento = new Intent(getActivity(), account.class);
+        favorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intento.putExtra("key",0);
+                startActivity(intento);
+            }
+        });
+        editAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intento.putExtra("key",1);
+                startActivity(intento);
+            }
+        });
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intento.putExtra("key",2);
+                startActivity(intento);
+            }
+        });
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intento.putExtra("key",3);
+                startActivity(intento);
+            }
+        });
 
 
         return view;

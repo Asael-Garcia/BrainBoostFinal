@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <LinearLayout
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
@@ -42,13 +42,14 @@
                         android:textSize="16sp"
                         android:textColor="#1F1F39"
                         android:layout_weight="1"/>
-                    <androidx.appcompat.widget.SwitchCompat
+
+                    <Switch
+                        android:id="@+id/data"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
@@ -59,13 +60,14 @@
                         android:textSize="16sp"
                         android:textColor="#1F1F39"
                         android:layout_weight="1"/>
-                    <androidx.appcompat.widget.SwitchCompat
+
+                    <Switch
+                        android:id="@+id/ubi"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
@@ -76,13 +78,14 @@
                         android:textSize="16sp"
                         android:textColor="#1F1F39"
                         android:layout_weight="1"/>
-                    <androidx.appcompat.widget.SwitchCompat
+
+                    <Switch
+                        android:id="@+id/noti"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
@@ -93,13 +96,14 @@
                         android:textSize="16sp"
                         android:textColor="#1F1F39"
                         android:layout_weight="1"/>
-                    <androidx.appcompat.widget.SwitchCompat
+
+                    <Switch
+                        android:id="@+id/save"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
@@ -110,10 +114,11 @@
                         android:textSize="16sp"
                         android:textColor="#1F1F39"
                         android:layout_weight="1"/>
-                    <androidx.appcompat.widget.SwitchCompat
+
+                    <Switch
+                        android:id="@+id/play"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
             </LinearLayout>

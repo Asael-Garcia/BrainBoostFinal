@@ -81,7 +81,9 @@
             android:inputType="text"
             android:selectAllOnFocus="false"
             android:editable="false"
-            android:singleLine="false"/>
+            android:singleLine="false"
+            android:text="correocaca"
+            tools:ignore="Deprecated" />
         <TextView
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"

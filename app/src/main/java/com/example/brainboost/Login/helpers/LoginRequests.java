@@ -28,12 +28,13 @@ public class LoginRequests {
     public  static class LoginBody {
         final String email;
         final String password;
-        public LoginBody(String email){
+        public LoginBody(String email, String password){
             this.email = email;
             this.password = password;
         }
     }
     public static class LoginResponse {
         public boolean logged;
+        public String id;
     }
 }

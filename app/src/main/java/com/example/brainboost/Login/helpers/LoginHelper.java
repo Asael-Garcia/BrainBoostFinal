@@ -32,20 +32,21 @@ public class LoginHelper {
     private static LoginApiService API_SERVICE;
     private static final String BASE_URL = "http://172.21.249.99:8000";
 
-    public void login(android.content.Context context, String email){
+    public void login(android.content.Context context, String email, String password){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         LoginApiService loginApiService = retrofit.create(LoginApiService.class);
         if (validarEmail(email)){
-            Call<LoginRequests.LoginResponse> call = loginApiService.login(new LoginRequests.LoginBody(email));
+            Call<LoginRequests.LoginResponse> call = loginApiService.login(new LoginRequests.LoginBody(email, password));
             call.enqueue(new Callback<LoginRequests.LoginResponse>() {
                 @Override
                 public void onResponse(Call<LoginRequests.LoginResponse> call, Response<LoginRequests.LoginResponse> response) {
-
+                  if(response.body().logged){
+                    saveId(context, response.body().id);
+                  }
                 }
-
                 @Override
                 public void onFailure(Call<LoginRequests.LoginResponse> call, Throwable t) {
                     Toast.makeText(context, "Error al loggear", Toast.LENGTH_SHORT).show();
@@ -76,7 +77,7 @@ public class LoginHelper {
         return ;
     }
 
-    public void saveId(android.content.Context ctx){
+    public void saveId(android.content.Context ctx, String id){
         SharedPreferences preferences = ctx.getSharedPreferences("MyPrefs", ctx.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("userID", id);

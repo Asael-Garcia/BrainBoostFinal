@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login.fragments.SecondFragment">
+    <!--Curso e icono de usuario-->
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+      <TextView
+          android:layout_marginLeft="20dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="50dp"
+          android:text="Cursos"
+          android:textColor="#1F1F39"
+          android:fontFamily="@font/poppins_semibold"
+          android:layout_weight="1"
+          android:textSize="30sp"
+          />
+
+      <ImageView
+          android:layout_marginTop="50dp"
+          android:id="@+id/imageUser"
+          android:layout_width="35dp"
+          android:layout_height="35dp"
+          android:layout_marginRight="10dp"
+          tools:src="@tools:sample/avatars" />
+  </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <FrameLayout
+                        android:layout_marginLeft="30dp"
+                        android:layout_width="250dp"
+                        android:layout_height="140dp"
+                        android:background="@drawable/cards"
+                        android:backgroundTint="#CEECFE">
+                        <ImageView
+                            android:id="@+id/cardgirl"
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:src="@drawable/cardgirl"/>
+                        <TextView
+                            android:background="@drawable/course_input"
+                            android:layout_gravity="end|bottom"
+
+                            android:layout_marginBottom="10dp"
+                            android:textAlignment="textEnd"
+                            android:layout_width="129dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#3D5CFF"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Matematicas"
+                            android:textSize="16sp" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_marginLeft="30dp"
+                        android:layout_width="250dp"
+                        android:layout_height="140dp"
+                        android:background="@drawable/cards"
+                        android:backgroundTint="#EFE0FF">
+                        <ImageView
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:src="@drawable/paiting"/>
+                        <TextView
+                            android:background="@drawable/course_input"
+                            android:layout_gravity="end|bottom"
+                            android:layout_marginBottom="10dp"
+                            android:textAlignment="textEnd"
+                            android:layout_width="129dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#9065BE"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Arte"
+                            android:textSize="16sp" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_marginLeft="30dp"
+                        android:layout_width="250dp"
+                        android:layout_height="140dp"
+                        android:background="@drawable/cards"
+                        android:backgroundTint="#FF9147">
+                        <ImageView
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:src="@drawable/music"/>
+                        <TextView
+                            android:background="@drawable/course_input"
+                            android:layout_gravity="end|bottom"
+                            android:layout_marginBottom="10dp"
+                            android:textAlignment="textEnd"
+                            android:layout_width="129dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FF6905"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Musica"
+                            android:textSize="16sp" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_width="250dp"
+                        android:layout_height="140dp"
+                        android:background="@drawable/cards"
+                        android:backgroundTint="#38C875">
+                        <ImageView
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:src="@drawable/tecnology"/>
+                        <TextView
+                            android:background="@drawable/course_input"
+                            android:layout_gravity="end|bottom"
+                            android:layout_marginBottom="10dp"
+                            android:textAlignment="textEnd"
+                            android:layout_width="129dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#38C875"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Tecnología"
+                            android:textSize="16sp" />
+                    </FrameLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Elige tu curso"
+                    android:textColor="#1F1F39"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/corner"
+                        android:backgroundTint="#3D5CFF"
+                        android:button="@null"
+                        android:fontFamily="@font/poppins"
+                        android:text="Todos"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"></RadioButton>
+
+                    <RadioButton
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/corner"
+
+                        android:backgroundTint="@color/white"
+                        android:button="@null"
+                        android:fontFamily="@font/poppins"
+                        android:text="Mis cursos"
+                        android:textAlignment="center"
+                        android:textColor="#858597"
+                        android:textSize="14sp"></RadioButton>
+                </RadioGroup>
+                <LinearLayout
+                    android:id="@+id/layoutCourses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <FrameLayout
+                        android:id="@+id/nameCourse"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@color/black">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="25dp"
+                            android:src="@drawable/cardgirl" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Desaroollo en Java"
+                            android:textColor="#1F1F39"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/poppins"
+                            android:text="Valdi god"
+                            android:textColor="#B8B8D2"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginTop="50dp"
+                            android:background="@drawable/corner"
+                            android:backgroundTint="#FFEBF0"
+                            android:fontFamily="@font/poppins"
+                            android:text="16 horas"
+                            android:textAlignment="center"
+                            android:textColor="#FF6905"
+                            android:textSize="10sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+
+                        android:backgroundTint="@color/black">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="25dp"
+                            android:src="@drawable/cardgirl" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Desaroollo en Java"
+                            android:textColor="#1F1F39"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/poppins"
+                            android:text="Valdi god"
+                            android:textColor="#B8B8D2"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginTop="50dp"
+                            android:background="@drawable/corner"
+                            android:backgroundTint="#FFEBF0"
+                            android:fontFamily="@font/poppins"
+                            android:text="16 horas"
+                            android:textAlignment="center"
+                            android:textColor="#FF6905"
+                            android:textSize="10sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+
+                        android:backgroundTint="@color/black">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="25dp"
+                            android:src="@drawable/cardgirl" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Desaroollo en Java"
+                            android:textColor="#1F1F39"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/poppins"
+                            android:text="Valdi god"
+                            android:textColor="#B8B8D2"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginTop="50dp"
+                            android:background="@drawable/corner"
+                            android:backgroundTint="#FFEBF0"
+                            android:fontFamily="@font/poppins"
+                            android:text="16 horas"
+                            android:textAlignment="center"
+                            android:textColor="#FF6905"
+                            android:textSize="10sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:backgroundTint="@color/black">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="25dp"
+                            android:src="@drawable/cardgirl" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Desaroollo en Java"
+                            android:textColor="#1F1F39"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/poppins"
+                            android:text="Valdi god"
+                            android:textColor="#B8B8D2"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginTop="50dp"
+                            android:background="@drawable/corner"
+                            android:backgroundTint="#FFEBF0"
+                            android:fontFamily="@font/poppins"
+                            android:text="16 horas"
+                            android:textAlignment="center"
+                            android:textColor="#FF6905"
+                            android:textSize="10sp" />
+                    </FrameLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

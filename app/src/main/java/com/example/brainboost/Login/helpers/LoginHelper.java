@@ -83,7 +83,7 @@ public class LoginHelper {
         // Almacena la variable de sesión
         SharedPreferences sharedPreferences = ctx.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("loggedIn", true);
+        //editor.putBoolean("loggedIn", true);
         editor.apply();
 
         // Verificar la variable de sesión en la pantalla de inicio
@@ -92,14 +92,14 @@ public class LoginHelper {
             // Muestra un mensaje indicando que ya tiene una sesión activa
             //inten para redirigir al dashboard
             Toast.makeText(ctx, "Ya ha iniciado sesión", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(ctx, Signup.class);
+            Intent intent = new Intent(ctx, Home.class);
             ctx.startActivity(intent);
             return true;
         }
         else {
             //intent para redirigir al sign up
             Toast.makeText(ctx, "No estas logeado, primero crea una cuenta", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(ctx, Home.class);
+            Intent intent = new Intent(ctx, Signup.class);
             ctx.startActivity(intent);
             return false;
         }

@@ -1,7 +1,10 @@
 package com.example.brainboost.Login.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.brainboost.Account.views.account;
 import com.example.brainboost.Courses.views.seeCourses;
@@ -76,12 +80,33 @@ public class FiveFragment extends Fragment {
         LinearLayout editAccount=view.findViewById(R.id.editAccount);
         LinearLayout settings=view.findViewById(R.id.settings);
         LinearLayout help=view.findViewById(R.id.help);
+        LinearLayout close=view.findViewById(R.id.close);
 
-        things.add(favorites);
-        things.add(editAccount);
-        things.add(settings);
-        things.add(help);
         intento = new Intent(getActivity(), account.class);
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //eliminar preferencia
+                // Obtener una instancia de SharedPreferences
+                SharedPreferences prefs = getContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
+
+// Obtener un editor de SharedPreferences
+                SharedPreferences.Editor editor = prefs.edit();
+                Toast toast = Toast.makeText(getContext(), "Cambiado aaaaaa"+prefs.getBoolean("loggedIn",false), Toast.LENGTH_LONG);
+                toast.show();
+
+
+// Eliminar la preferencia con el nombre "my_preference"
+                editor.putBoolean("loggedIn",false);
+                toast = Toast.makeText(getContext(), "Cambiado"+prefs.getBoolean("loggedIn",false), Toast.LENGTH_LONG);
+                toast.show();
+
+// Guardar los cambios
+                editor.apply();
+
+            }
+        });
         favorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

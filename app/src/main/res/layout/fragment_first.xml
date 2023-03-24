@@ -5,15 +5,322 @@
     android:layout_height="match_parent"
     tools:context=".Login.fragments.FirstFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <!-- Frame azulito de arriba -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-black"
-        android:textColor="@color/green_normal"
-        android:textSize="40sp"
-        android:text="Primero" />
+        android:layout_height="150dp"
+        android:background="@color/blue">
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="left"
+            android:text="Hey user"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/poppins"
+            android:gravity="left"
+            android:text="Empezemos a estudiar algo"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/imageUser"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right"
+           android:layout_marginRight="10dp"
+            android:layout_marginTop="40dp"
+            tools:src="@tools:sample/avatars"
+            tools:visibility="visible" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp">
+        <!--Frame de aprendido hoy-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cards">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Aprendido hoy"
+                    android:textColor="#858597"
+                    android:textSize="12sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Mis cursos"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="35dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="46min"
+                    android:textColor="#1F1F39"
+                    android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="/60min"
+                    android:textColor="#858597"
+                    android:textSize="12sp" />
+                <ProgressBar
+
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70dp"/>
+            </FrameLayout>
+            <!--Linear layout carrucel de recomendados-->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <FrameLayout
+                        android:layout_marginLeft="30dp"
+                        android:layout_width="250dp"
+                        android:layout_height="140dp"
+                        android:background="@drawable/cards"
+                        android:backgroundTint="#CEECFE">
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_width="129dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#1F1F39"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Cursos recomendados"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:layout_width="112dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="80dp"
+                            android:backgroundTint="#FF6905"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Comenzemos"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+
+                        <ImageView
+
+                            android:id="@+id/cardgirl"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_marginLeft="130dp"
+                            android:layout_marginTop="10dp"
+                            tools:src="@drawable/cardgirl" />
+                    </FrameLayout>
+
+
+                    <FrameLayout
+                        android:layout_marginLeft="30dp"
+                        android:layout_width="250dp"
+                        android:layout_height="140dp"
+                        android:background="@drawable/cards"
+                        android:backgroundTint="#CEECFE">
+
+
+                        <ImageView
+                            android:id="@+id/cardboy"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            tools:src="@drawable/cardboy" />
+
+                        <ImageView
+
+                            android:id="@+id/carddone"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:src="@drawable/carddone"/>
+                    </FrameLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+            <!--Linear layout Plan de aprendizaje-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Plan de aprendizaje"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="18sp"
+                    android:textColor="#1F1F39"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp">
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Curso 1"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="18sp"
+                        android:textColor="#1F1F39"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="40"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="18sp"
+                        android:textColor="#1F1F39"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="/48"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="18sp"
+                        android:textColor="#B8B8D2"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp">
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Curso 2"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="18sp"
+                        android:textColor="#1F1F39"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="6"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="18sp"
+                        android:textColor="#1F1F39"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="/24"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="18sp"
+                        android:textColor="#B8B8D2"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+            <!--Frame layout reuniones-->
+            <FrameLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cards"
+                android:backgroundTint="#EFE0FF">
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reunete"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="25sp"
+                    android:textColor="#440687"/>
+
+                <TextView
+                    android:layout_width="207dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Intercambio en línea de experiencias de aprendizaje"
+                    android:textColor="#440687" />
+
+                <ImageView
+                    android:id="@+id/metup"
+                    android:layout_width="128dp"
+                    android:layout_height="121dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    tools:src="@drawable/metup" />
+
+            </FrameLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
 
 </FrameLayout>

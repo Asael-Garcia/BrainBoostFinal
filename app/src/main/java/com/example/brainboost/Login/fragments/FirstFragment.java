@@ -1,5 +1,12 @@
 package com.example.brainboost.Login.fragments;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -9,8 +16,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.brainboost.R;
+
+import java.util.Calendar;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,9 +37,11 @@ public class FirstFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     ImageView user;
+    ProgressBar bar;
     ImageView cardgirl;
     ImageView cardboy;
     ImageView carddone;
+    TextView time;
     ImageView metup;
 
     // TODO: Rename and change types of parameters
@@ -77,12 +92,38 @@ public class FirstFragment extends Fragment {
         cardboy= (ImageView) view.findViewById(R.id.cardboy);
         carddone= (ImageView) view.findViewById(R.id.carddone);
         metup= (ImageView) view.findViewById(R.id.metup);
+        bar= (ProgressBar) view.findViewById(R.id.progressBar);
+        time= (TextView) view.findViewById(R.id.time);
         //se cargan las imagenes
         user.setImageResource(R.drawable.avatar);
         cardgirl.setImageResource(R.drawable.cardgirl);
         cardboy.setImageResource(R.drawable.cardboy);
         carddone.setImageResource(R.drawable.carddone);
         metup.setImageResource(R.drawable.metup);
+
+        UsageStatsManager usageStatsManager = (UsageStatsManager) requireContext().getSystemService(Context.USAGE_STATS_SERVICE);        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_YEAR, -1);
+
+        List<UsageStats> usageStatsList = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, cal.getTimeInMillis(), System.currentTimeMillis());
+
+        long totalTimeUsed = 0;
+        long minutes=0;
+        for (UsageStats usageStats : usageStatsList) {
+            if (usageStats.getPackageName().equals("com.example.brainboost")) {
+                totalTimeUsed += usageStats.getTotalTimeInForeground();
+            }
+        }minutes=totalTimeUsed/60000;
+        int color = Color.parseColor("#FF5106");
+        bar.setProgressTintList(ColorStateList.valueOf(color));
+        bar.setMax(60);
+        bar.setProgress(Math.toIntExact(minutes));
+        time.setText(Math.toIntExact(minutes)+"min");
+
+// totalTimeUsed contiene el tiempo de uso de la aplicación en milisegundos en un día
+
+
+
+
         return view;
     }
 }

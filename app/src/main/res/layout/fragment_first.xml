@@ -99,6 +99,7 @@
                     android:textColor="#858597"
                     android:textSize="12sp" />
                 <ProgressBar
+
                     android:id="@+id/progressBar"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"

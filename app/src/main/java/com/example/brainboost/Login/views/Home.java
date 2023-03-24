@@ -2,10 +2,16 @@ package com.example.brainboost.Login.views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AppOpsManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.MenuItem;
 
 import com.example.brainboost.Login.fragments.FirstFragment;
@@ -13,6 +19,7 @@ import com.example.brainboost.Login.fragments.FiveFragment;
 import com.example.brainboost.Login.fragments.FourFragment;
 import com.example.brainboost.Login.fragments.SecondFragment;
 import com.example.brainboost.Login.fragments.ThirdFragment;
+
 import com.example.brainboost.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -31,6 +38,16 @@ public class Home extends AppCompatActivity {
 
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        AppOpsManager appOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
+        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), getPackageName());
+        if (mode == AppOpsManager.MODE_ALLOWED) {
+            // El permiso está concedido
+        } else {
+            //para pedir un permiso especial para el timepo de uso
+            Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+            startActivity(intent);
+        }
         loadFragment(firstFragment);
 
     }

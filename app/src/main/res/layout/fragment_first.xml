@@ -135,6 +135,7 @@
                             android:textSize="16sp" />
 
                         <Button
+                            android:id="@+id/start"
                             android:layout_width="112dp"
                             android:layout_height="36dp"
                             android:layout_marginLeft="10dp"

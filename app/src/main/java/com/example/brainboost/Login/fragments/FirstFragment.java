@@ -15,12 +15,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.brainboost.Login.views.Home;
 import com.example.brainboost.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Calendar;
 import java.util.List;
@@ -43,6 +46,7 @@ public class FirstFragment extends Fragment {
     ImageView carddone;
     TextView time;
     ImageView metup;
+    SecondFragment secondFragment= new SecondFragment();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -52,6 +56,7 @@ public class FirstFragment extends Fragment {
         // Required empty public constructor
     }
 
+    Button start;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -94,6 +99,7 @@ public class FirstFragment extends Fragment {
         metup= (ImageView) view.findViewById(R.id.metup);
         bar= (ProgressBar) view.findViewById(R.id.progressBar);
         time= (TextView) view.findViewById(R.id.time);
+        start= (Button) view.findViewById(R.id.start);
         //se cargan las imagenes
         user.setImageResource(R.drawable.avatar);
         cardgirl.setImageResource(R.drawable.cardgirl);
@@ -121,6 +127,20 @@ public class FirstFragment extends Fragment {
 
 // totalTimeUsed contiene el tiempo de uso de la aplicación en milisegundos en un día
 
+
+
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtener instancia de la actividad
+                Home miActividad = (Home) getActivity();
+                miActividad.loadFragment(secondFragment);
+                BottomNavigationView bottomNavigationView=miActividad.findViewById(R.id.bottom_navigation);
+                bottomNavigationView.setSelectedItemId(R.id.secondFragment);
+
+                
+            }
+        });
 
 
 

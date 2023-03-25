@@ -22,7 +22,6 @@ public class Login extends AppCompatActivity {
     EditText password;
     Button loggin;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,21 +33,25 @@ public class Login extends AppCompatActivity {
         loggin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helper.isLogged(context);
-
+                sendData();
             }
         });
-
-
-
     }
-    public void sendData(View view){
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Context context= this;
+
+        if(helper.isLogged(context)){
+            Intent intento = new Intent(context, Home.class);
+            context.startActivity(intento);
+        }
+    }
+
+    public void sendData(){
         String emailValue = email.getText().toString();
         String passwordValue = password.getText().toString();
         helper.login(this, emailValue, passwordValue);
-        Toast toast = Toast.makeText(this, "listo, datos enviados", Toast.LENGTH_LONG);
-        toast.show();
-        Intent intento = new Intent(this, Home.class);
-        startActivity(intento);
     }
 }

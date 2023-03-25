@@ -59,15 +59,31 @@
             android:layout_marginTop="1dp"
             android:layout_height="wrap_content"
             android:text="6h 14min 24 Lecciones"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="1dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="18sp"
-            android:textColor="#1F1F39"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Acerca de este curso"/>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="18sp"
+                android:textColor="#1F1F39"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Acerca de este curso"/>
+            <Button
+                android:id="@+id/makeDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="Agendar reunion"
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppins"
+                android:backgroundTint="@color/blue"/>
+        </LinearLayout>
+
 
         <ScrollView
             android:layout_width="wrap_content"

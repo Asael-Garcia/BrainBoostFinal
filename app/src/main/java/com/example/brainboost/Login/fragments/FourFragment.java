@@ -1,13 +1,24 @@
 package com.example.brainboost.Login.fragments;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.example.brainboost.Courses.views.seeCourses;
+import com.example.brainboost.Messages.fragments.dates;
+import com.example.brainboost.Messages.fragments.messages;
 import com.example.brainboost.R;
 
 /**
@@ -21,6 +32,11 @@ public class FourFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    TextView messages;
+
+    messages FragmenMessages= new messages();
+   dates FragmentDates=new dates();
+    TextView dates;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -61,6 +77,56 @@ public class FourFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_four, container, false);
+        FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content,FragmenMessages);
+        transaction.commit();
+        View view=inflater.inflate(R.layout.fragment_four, container, false);
+        messages=view.findViewById(R.id.messages);
+        dates=view.findViewById(R.id.dates);
+        String hexColor1 = "#1F1F39"; //
+        String hexColor2 = "#858597"; //
+        int color1 = Color.parseColor(hexColor1);
+        int color2 = Color.parseColor(hexColor2);
+        ColorStateList backgrounGray = ColorStateList.valueOf(Color.parseColor("#F4F3FD"));
+        ColorStateList backgroundWhite = ColorStateList.valueOf(Color.parseColor("#FFFFFF"));
+
+
+
+
+        messages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.content,FragmenMessages);
+                transaction.commit();
+                messages.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
+                dates.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
+
+                messages.setTextColor(getResources().getColor(R.color.anotherBlue));
+                dates.setTextColor(getResources().getColor(R.color.gray));
+
+                messages.setBackgroundTintList(backgroundWhite);
+                dates.setBackgroundTintList(backgrounGray);
+
+            }
+        });
+        dates.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.content,FragmentDates);
+                transaction.commit();
+
+                dates.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
+                messages.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
+
+                dates.setTextColor(getResources().getColor(R.color.anotherBlue));
+                messages.setTextColor(getResources().getColor(R.color.gray));
+
+                dates.setBackgroundTintList(backgroundWhite);
+                messages.setBackgroundTintList(backgrounGray);
+            }
+        });
+        return view;
     }
 }

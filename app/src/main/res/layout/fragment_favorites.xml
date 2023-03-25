@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Account.fragments.favorites"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Account.fragments.favorites">
 
 
     <ScrollView
@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
-                    android:background="@drawable/cards"
+                    app:cardCornerRadius="20dp"
                     android:backgroundTint="#FFE7EE"
                     >
                     <LinearLayout
@@ -86,6 +86,7 @@
                             android:layout_height="wrap_content"
                             android:text="14/24:"/>
 
+
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -96,6 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
+                    app:cardCornerRadius="20dp"
                     android:background="@drawable/cards"
                     android:backgroundTint="#BAD6FF"
                     >

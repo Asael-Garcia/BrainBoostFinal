@@ -4,11 +4,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +19,15 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.brainboost.Courses.fragments.allCourses;
+import com.example.brainboost.Courses.fragments.myCourses;
 import com.example.brainboost.Courses.views.seeCourses;
 import com.example.brainboost.R;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,12 +41,16 @@ public class SecondFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    allCourses FragmentAll= new allCourses();
+    myCourses FragmentmyCourses = new myCourses();
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     FrameLayout thing;
-    RadioGroup radioGroup;
-    RadioButton radioButton;
+
+    TextView all;
+    TextView myCourses;
     RadioButton aux;
     Drawable drawable;
 
@@ -80,77 +91,46 @@ public class SecondFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_second, container, false);
-        thing= view.findViewById(R.id.nameCourse);
-        radioGroup= view.findViewById(R.id.radioCourse);
-
-
-        //para cambiar de pantalla
-        thing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context=getContext();
-                Intent intento = new Intent(getActivity(), seeCourses.class);
-                startActivity(intento);
-            }
-        });
-
-        //para añadir a favoritos
-        thing.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                // Mostrar el diálogo de alerta
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("¿Quieres añadir este curso a tus favoritos?")
-                        .setTitle("Añadir a favoritos")
-                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // Se añade a favoritos
-                            }
-                        })
-                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // No pasa nada pq se cancela
-                            }
-                        });
-                AlertDialog dialog = builder.create();
-                dialog.show();
-                return true;
-            }
-        });
+        FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.layoutCourses,FragmentAll);
+        transaction.commit();
+        all= view.findViewById(R.id.all);
+        myCourses= view.findViewById(R.id.myCourses);
 
         //para cambiar lo del fragment de radiogrouo:
 
-        int radioButtonId = radioGroup.getCheckedRadioButtonId();
-        int color = Color.parseColor("#3D5CFF");
-        int white = Color.parseColor("#FF0000");
-        //drawable=radioButton.getButtonDrawable();
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+        ColorStateList backgrounBlue = ColorStateList.valueOf(Color.parseColor("#3D5CFF"));
+        ColorStateList backgroundWhite = ColorStateList.valueOf(Color.parseColor("#FFFFFF"));
+        all.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == -1) {
-                    // Ningún RadioButton está seleccionado
-                    Toast toast = Toast.makeText(getContext(), "nada esta seleccionado", Toast.LENGTH_LONG);
-                    toast.show();
-                } else {
-                     radioButton = view.findViewById(checkedId);
-                    // radioButton es el RadioButton seleccionado
-                    if (radioButton.getText()=="Todos"){
-                        aux = view.findViewById(R.id.myCourses);
-                        aux.setBackgroundColor(white);
-                       // radioButton.setBackground(drawable);
-                        radioButton.setBackgroundColor(color);
-                    }else {
-                        aux = view.findViewById(R.id.all);
-                        aux.setBackgroundColor(white);
-                        //radioButton.setBackground(drawable);
-                        radioButton.setBackgroundColor(color);
-                    }
-                    Toast toast = Toast.makeText(getContext(), radioButton.getText()+"", Toast.LENGTH_LONG);
-                    toast.show();
-                }
+            //
+            public void onClick(View v) {
+
+                FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.layoutCourses,FragmentAll);
+                transaction.commit();
+                all.setBackgroundTintList(backgrounBlue);
+                myCourses.setBackgroundTintList(backgroundWhite);
+
+                all.setTextColor(getResources().getColor(R.color.white));
+                myCourses.setTextColor(getResources().getColor(R.color.gray));
             }
         });
+        myCourses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            //
+            public void onClick(View v) {
+                FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.layoutCourses,FragmentmyCourses);
+                transaction.commit();
+                myCourses.setBackgroundTintList(backgrounBlue);
+                all.setBackgroundTintList(backgroundWhite);
 
+                myCourses.setTextColor(getResources().getColor(R.color.white));
+                all.setTextColor(getResources().getColor(R.color.gray));
+            }
+        });
         return view;
     }
 }

@@ -2,9 +2,11 @@ package com.example.brainboost.Courses.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,8 +26,11 @@ import java.util.Calendar;
 
 public class seeCourses extends AppCompatActivity {
     TextView description;
+    TextView title;
+    TextView status;
     ImageButton arrow;
     Button button;
+    Button register;
     FrameLayout evaluation;
     final int MAX_LINES=3;
     // Obtener la fecha actual
@@ -40,14 +45,18 @@ public class seeCourses extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_courses);
-        description=findViewById(R.id.courseDescription);
-        evaluation=findViewById(R.id.evaluation);
-        button=findViewById(R.id.makeDate);
-        Context context= this;
-        arrow=findViewById(R.id.arrow);
+        description = findViewById(R.id.courseDescription);
+        title = findViewById(R.id.courseName);
+        status = findViewById(R.id.currentState);
+        evaluation = findViewById(R.id.evaluation);
+        button = findViewById(R.id.makeDate);
+        register = findViewById(R.id.registerCourse);
+        Context context = this;
+        arrow = findViewById(R.id.arrow);
         description.setMaxLines(MAX_LINES);
         arrow.setOnClickListener(new View.OnClickListener() {
             boolean expanded = false;
+
             @Override
             public void onClick(View v) {
                 expanded = !expanded;
@@ -87,7 +96,7 @@ public class seeCourses extends AppCompatActivity {
                                                 String time = hourOfDay + ":" + minute;
 
                                                 // Combinar la fecha y la hora seleccionadas
-                                                String datetime = "Tu cita quedo agendada para: "+date + " a las:" + time;
+                                                String datetime = "Tu cita quedo agendada para: " + date + " a las:" + time;
 
                                                 // Mostrar el resultado en un Toast
                                                 Toast.makeText(context, datetime, Toast.LENGTH_SHORT).show();
@@ -105,10 +114,37 @@ public class seeCourses extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(context, tests.class);
+                Intent intent = new Intent(context, tests.class);
                 startActivity(intent);
             }
         });
+
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Creación de la alerta
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Inscribirse a curso")
+                        .setMessage("Te inscribiras a: "+title.getText().toString())
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // Acciones a realizar al hacer clic en el botón Aceptar
+                                status.setText("Inscrito");
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // Acciones a realizar al hacer clic en el botón Cancelar
+                            }
+                        });
+
+                // Mostrando la alerta
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+
     }
 
 

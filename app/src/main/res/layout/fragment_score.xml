@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Tests.fragments.score">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Resultados"
+        android:textColor="#1F1F39"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
+        android:background="@color/blue"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tu resultado:"
+                android:fontFamily="@font/poppins_bold"
+                android:textAlignment="center"
+                android:textSize="20sp"
+               />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aprobaste"
+                android:fontFamily="@font/poppins_bold"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="#1F1F39"
+                />
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/correct"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Obtuviste un puntaje de:"
+                android:fontFamily="@font/poppins_bold"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="8/10"
+                android:textColor="#1F1F39"
+                android:fontFamily="@font/poppins_bold"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Siguiente"
+        android:textAllCaps="false"
+        android:fontFamily="@font/poppins"
+        android:backgroundTint="@color/blue"/>
+</LinearLayout>
+
+
+</FrameLayout>

@@ -159,6 +159,7 @@
                     />
             </FrameLayout>
             <FrameLayout
+                android:id="@+id/evaluation"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
@@ -175,7 +176,7 @@
                     android:layout_marginLeft="60dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bienvenido al curso"
+                    android:text="Evaluación"
                     android:textColor="#1F1F39"
                     android:fontFamily="@font/poppins"
                     android:textSize="20sp"/>

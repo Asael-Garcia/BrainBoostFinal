@@ -123,7 +123,7 @@ public class SecondFragment extends Fragment {
         int radioButtonId = radioGroup.getCheckedRadioButtonId();
         int color = Color.parseColor("#3D5CFF");
         int white = Color.parseColor("#FF0000");
-        drawable=radioButton.getButtonDrawable();
+        //drawable=radioButton.getButtonDrawable();
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -137,15 +137,13 @@ public class SecondFragment extends Fragment {
                     if (radioButton.getText()=="Todos"){
                         aux = view.findViewById(R.id.myCourses);
                         aux.setBackgroundColor(white);
-                        radioButton.setBackground(drawable);
+                       // radioButton.setBackground(drawable);
                         radioButton.setBackgroundColor(color);
                     }else {
                         aux = view.findViewById(R.id.all);
                         aux.setBackgroundColor(white);
-                        radioButton.setBackground(drawable);
+                        //radioButton.setBackground(drawable);
                         radioButton.setBackgroundColor(color);
-
-
                     }
                     Toast toast = Toast.makeText(getContext(), radioButton.getText()+"", Toast.LENGTH_LONG);
                     toast.show();

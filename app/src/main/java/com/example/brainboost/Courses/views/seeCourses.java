@@ -2,16 +2,22 @@ package com.example.brainboost.Courses.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.brainboost.R;
+import com.example.brainboost.Tests.fragments.questions;
+import com.example.brainboost.Tests.views.tests;
 
 public class seeCourses extends AppCompatActivity {
     TextView description;
     ImageButton arrow;
+    FrameLayout evaluation;
     final int MAX_LINES=3;
 
     @Override
@@ -19,6 +25,8 @@ public class seeCourses extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_courses);
         description=findViewById(R.id.courseDescription);
+        evaluation=findViewById(R.id.evaluation);
+        Context context= this;
         arrow=findViewById(R.id.arrow);
         description.setMaxLines(MAX_LINES);
         arrow.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +41,14 @@ public class seeCourses extends AppCompatActivity {
                     description.setMaxLines(MAX_LINES);
 
                 }
+            }
+        });
+        evaluation.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(context, tests.class);
+                startActivity(intent);
             }
         });
     }

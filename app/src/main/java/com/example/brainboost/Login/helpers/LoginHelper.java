@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.util.Patterns;
 import android.widget.Toast;
 
+import com.example.brainboost.Login.views.Home;
+import com.example.brainboost.Login.views.Login;
 import com.example.brainboost.Login.views.Signup;
 
 import retrofit2.Call;
@@ -17,6 +19,8 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 import java.util.regex.Pattern;
+import android.content.Intent;
+
 
 interface LoginApiService{
     @POST("/signup")
@@ -31,22 +35,26 @@ interface LoginApiService{
 
 public class LoginHelper {
     private static LoginApiService API_SERVICE;
-    private static final String BASE_URL = "http://172.30.67.224:8000";
+    private static final String BASE_URL = "https://brain-boost.fly.dev/";
 
-    public void login(Context context, String email){
+    public void login(android.content.Context context, String email, String password){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         LoginApiService loginApiService = retrofit.create(LoginApiService.class);
         if (validarEmail(email)){
-            Call<LoginRequests.LoginResponse> call = loginApiService.login(new LoginRequests.LoginBody(email));
+            Call<LoginRequests.LoginResponse> call = loginApiService.login(new LoginRequests.LoginBody(email, password));
             call.enqueue(new Callback<LoginRequests.LoginResponse>() {
                 @Override
                 public void onResponse(Call<LoginRequests.LoginResponse> call, Response<LoginRequests.LoginResponse> response) {
-
+                    if(response.body().logged){
+                        Toast.makeText(context, response.body().id, Toast.LENGTH_SHORT).show();
+                        saveId(context, response.body().id);
+                        Intent intento = new Intent(context, Home.class);
+                        context.startActivity(intento);
+                    }
                 }
-
                 @Override
                 public void onFailure(Call<LoginRequests.LoginResponse> call, Throwable t) {
                     Toast.makeText(context, "Error al loggear", Toast.LENGTH_SHORT).show();
@@ -76,42 +84,27 @@ public class LoginHelper {
         }
         return ;
     }
-
-    public void saveId(android.content.Context ctx, String id){
-        SharedPreferences preferences = ctx.getSharedPreferences("MyPrefs", ctx.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("userID", id);
-        editor.commit();
-    }
-
     public boolean isLogged(android.content.Context ctx){
         // Almacena la variable de sesión
         SharedPreferences sharedPreferences = ctx.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("loggedIn", true);
-        editor.apply();
-
-        // Verificar la variable de sesión en la pantalla de inicio
-        boolean isLoggedIn = sharedPreferences.getBoolean("loggedIn", false);
-        if (isLoggedIn) {
-            // Muestra un mensaje indicando que ya tiene una sesión activa
-            //inten para redirigir al dashboard
+        Toast.makeText(ctx, sharedPreferences.getAll().toString(), Toast.LENGTH_SHORT).show();
+        String userId = sharedPreferences.getString("userID", "");
+        Toast.makeText(ctx, userId, Toast.LENGTH_SHORT).show();
+        if (!userId.equals("")) {
             Toast.makeText(ctx, "Ya ha iniciado sesión", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(ctx, Signup.class);
-            ctx.startActivity(intent);
             return true;
         }
-        else {
-            //intent para redirigir al sign up
-            Toast.makeText(ctx, "No estas logeado, primero crea una cuenta", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(ctx, Home.class);
-            ctx.startActivity(intent);
-            return false;
-        }
-
+        Toast.makeText(ctx, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+        return false;
     }
-
-
+    public void saveId(android.content.Context ctx, String id){
+        Toast.makeText(ctx, id, Toast.LENGTH_SHORT).show();
+        SharedPreferences preferences = ctx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("userID", id);
+        editor.apply();
+        Toast.makeText(ctx, preferences.getAll().toString(), Toast.LENGTH_SHORT).show();
+    }
     // validación del email
     private boolean validarEmail(String email) {
         Pattern pattern = Patterns.EMAIL_ADDRESS;

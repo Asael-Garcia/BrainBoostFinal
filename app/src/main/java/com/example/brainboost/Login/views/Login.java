@@ -13,9 +13,6 @@ import android.widget.Toast;
 import com.example.brainboost.Login.helpers.LoginHelper;
 import com.example.brainboost.R;
 
-
-
-
 public class Login extends AppCompatActivity {
     private final LoginHelper helper = new LoginHelper();
     EditText email;
@@ -37,11 +34,9 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
     public void sendData(){
         String emailValue = email.getText().toString();
         String passwordValue = password.getText().toString();
         helper.login(this, emailValue, passwordValue);
-        finish();
     }
 }

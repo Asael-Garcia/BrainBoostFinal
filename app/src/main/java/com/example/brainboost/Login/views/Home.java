@@ -20,6 +20,7 @@ import com.example.brainboost.Login.fragments.FourFragment;
 import com.example.brainboost.Login.fragments.SecondFragment;
 import com.example.brainboost.Login.fragments.ThirdFragment;
 
+import com.example.brainboost.Login.helpers.HomeHelper;
 import com.example.brainboost.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -31,13 +32,14 @@ public class Home extends AppCompatActivity {
     ThirdFragment thirdFragment= new ThirdFragment();
     FourFragment fourFragment=new FourFragment();
     FiveFragment fiveFragment=new FiveFragment();
+    HomeHelper homeHelper = new HomeHelper();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setOnItemSelectedListener(mOnNavigationItemSelectedListener);
 
         AppOpsManager appOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
         int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), getPackageName());
@@ -49,9 +51,9 @@ public class Home extends AppCompatActivity {
             startActivity(intent);
         }
         loadFragment(firstFragment);
-
+        homeHelper.getAllCourses(this);
     }
-    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private final BottomNavigationView.OnItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()){
@@ -74,7 +76,6 @@ public class Home extends AppCompatActivity {
             return false;
         }
     };
-
     public void loadFragment(Fragment fragment){
         FragmentTransaction transaction= getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container,fragment);

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.brainboost.Login.helpers.LoginHelper;
 import com.example.brainboost.R;
 
 import org.w3c.dom.Text;
@@ -24,6 +25,7 @@ public class OnBoard extends AppCompatActivity {
     Button singUp;
     Button loggin;
     int stepIndex=0;
+    LoginHelper loginHelper = new LoginHelper();
     String [] stepImages={"onboarding1.png","onboarding2.png","onboarding3.png"};
     String [] stepTittles={"Varias pruebas de cursos gratuitios","Rapido y facil de aprender","Crea tu propio plan de estudio"};
     String [] stepInformation={"Cursos gratuitos para que encuentres tu camino hacia el aprendizaje",
@@ -41,7 +43,11 @@ public class OnBoard extends AppCompatActivity {
         loggin=findViewById(R.id.button2);
         singUp.setVisibility(View.GONE);
         loggin.setVisibility(View.GONE);
-
+        if(loginHelper.isLogged(this)){
+            Intent intent = new Intent(this, Home.class);
+            startActivity(intent);
+            finish();
+        }
         nextStep();
     }
 
@@ -68,7 +74,7 @@ public class OnBoard extends AppCompatActivity {
                     nextStep();
                 }
             }
-        },3000);
+        },2000);
     }
 
     public void log(View view){
@@ -77,7 +83,7 @@ public class OnBoard extends AppCompatActivity {
         finish();
     }
     public void signUp(View view){
-        Intent intent = new Intent(this, Login.class);
+        Intent intent = new Intent(this, Signup.class);
         startActivity(intent);
         finish();
     }

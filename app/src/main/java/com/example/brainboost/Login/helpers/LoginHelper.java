@@ -49,11 +49,10 @@ public class LoginHelper {
                 @Override
                 public void onResponse(Call<LoginRequests.LoginResponse> call, Response<LoginRequests.LoginResponse> response) {
                     if(response.body().logged){
-                        Toast.makeText(context, response.body().id, Toast.LENGTH_SHORT).show();
                         saveId(context, response.body().id);
                         Intent intento = new Intent(context, Home.class);
                         context.startActivity(intento);
-
+                        Toast.makeText(context, "Sesion iniciada", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         Intent intento = new Intent(context, Signup.class);
@@ -81,6 +80,7 @@ public class LoginHelper {
                 public void onResponse(Call<LoginRequests.SignupResponse> call, Response<LoginRequests.SignupResponse> response) {
                     Intent intento = new Intent(context, Login.class);
                     context.startActivity(intento);
+                    Toast.makeText(context, "Cuenta creada, ahora loggeate", Toast.LENGTH_SHORT).show();
                 }
                 @Override
                 public void onFailure(Call<LoginRequests.SignupResponse> call, Throwable t) {
@@ -92,10 +92,8 @@ public class LoginHelper {
     }
     public boolean isLogged(android.content.Context ctx){
         // Almacena la variable de sesión
-        SharedPreferences sharedPreferences = ctx.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-        Toast.makeText(ctx, sharedPreferences.getAll().toString(), Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String userId = sharedPreferences.getString("userID", "");
-        Toast.makeText(ctx, userId, Toast.LENGTH_SHORT).show();
         if (!userId.equals("")) {
             Toast.makeText(ctx, "Ya ha iniciado sesión", Toast.LENGTH_SHORT).show();
             return true;
@@ -104,12 +102,10 @@ public class LoginHelper {
         return false;
     }
     public void saveId(android.content.Context ctx, String id){
-        Toast.makeText(ctx, id, Toast.LENGTH_SHORT).show();
         SharedPreferences preferences = ctx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("userID", id);
-        editor.apply();
-        Toast.makeText(ctx, preferences.getAll().toString(), Toast.LENGTH_SHORT).show();
+        editor.commit();
     }
     // validación del email
     private boolean validarEmail(String email) {

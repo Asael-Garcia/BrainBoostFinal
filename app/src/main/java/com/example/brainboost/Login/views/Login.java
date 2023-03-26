@@ -20,7 +20,7 @@ public class Login extends AppCompatActivity {
     private final LoginHelper helper = new LoginHelper();
     EditText email;
     EditText password;
-    Button loggin;
+    Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +28,9 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
-        loggin=findViewById(R.id.loggin);
+        login=findViewById(R.id.loggin);
         Context context= this;
-        loggin.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendData();
@@ -38,20 +38,10 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Context context= this;
-
-        if(helper.isLogged(context)){
-            Intent intento = new Intent(context, Home.class);
-            context.startActivity(intento);
-        }
-    }
-
     public void sendData(){
         String emailValue = email.getText().toString();
         String passwordValue = password.getText().toString();
         helper.login(this, emailValue, passwordValue);
+        finish();
     }
 }

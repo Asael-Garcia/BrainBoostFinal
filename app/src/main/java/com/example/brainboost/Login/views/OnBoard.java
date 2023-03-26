@@ -43,12 +43,9 @@ public class OnBoard extends AppCompatActivity {
         loggin.setVisibility(View.GONE);
 
         nextStep();
-
     }
 
     public void nextStep(){
-        Toast toast = Toast.makeText(this, "Step index"+stepIndex, Toast.LENGTH_LONG);
-        toast.show();
         final Handler handler =new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -68,10 +65,6 @@ public class OnBoard extends AppCompatActivity {
                         singUp.setVisibility(View.VISIBLE);
                         loggin.setVisibility(View.VISIBLE);
                     }
-
-
-
-
                     nextStep();
                 }
             }
@@ -79,20 +72,14 @@ public class OnBoard extends AppCompatActivity {
     }
 
     public void log(View view){
-        Toast toast1 = Toast.makeText(this, "Presionado antes del intent", Toast.LENGTH_LONG);
-        toast1.show();
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
-        Toast toast = Toast.makeText(this, "Presionado despues del intent", Toast.LENGTH_LONG);
-        toast.show();
+        finish();
     }
     public void signUp(View view){
-        Toast toast1 = Toast.makeText(this, "Presionado antes del intent", Toast.LENGTH_LONG);
-        toast1.show();
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
-        Toast toast = Toast.makeText(this, "Presionado despues del intent", Toast.LENGTH_LONG);
-        toast.show();
+        finish();
     }
 
 

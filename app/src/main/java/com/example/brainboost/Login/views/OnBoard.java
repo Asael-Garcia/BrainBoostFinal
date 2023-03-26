@@ -89,7 +89,7 @@ public class OnBoard extends AppCompatActivity {
     public void signUp(View view){
         Toast toast1 = Toast.makeText(this, "Presionado antes del intent", Toast.LENGTH_LONG);
         toast1.show();
-        Intent intent = new Intent(this, Login.class);
+        Intent intent = new Intent(this, Signup.class);
         startActivity(intent);
         Toast toast = Toast.makeText(this, "Presionado despues del intent", Toast.LENGTH_LONG);
         toast.show();

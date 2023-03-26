@@ -54,6 +54,10 @@ public class LoginHelper {
                         Intent intento = new Intent(context, Home.class);
                         context.startActivity(intento);
                     }
+                    else {
+                        Intent intento = new Intent(context, Signup.class);
+                        context.startActivity(intento);
+                    }
                 }
                 @Override
                 public void onFailure(Call<LoginRequests.LoginResponse> call, Throwable t) {
@@ -74,7 +78,8 @@ public class LoginHelper {
             call.enqueue(new Callback<LoginRequests.SignupResponse>() {
                 @Override
                 public void onResponse(Call<LoginRequests.SignupResponse> call, Response<LoginRequests.SignupResponse> response) {
-
+                    Intent intento = new Intent(context, Login.class);
+                    context.startActivity(intento);
                 }
                 @Override
                 public void onFailure(Call<LoginRequests.SignupResponse> call, Throwable t) {

@@ -1,6 +1,8 @@
 package com.example.brainboost.Courses.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -9,6 +11,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -18,6 +21,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.brainboost.Courses.fragments.Lesson;
+import com.example.brainboost.Login.helpers.CourseData;
+import com.example.brainboost.Login.helpers.FetchCallback;
+import com.example.brainboost.Login.helpers.HomeHelper;
+import com.example.brainboost.Login.helpers.LessonsData;
 import com.example.brainboost.R;
 import com.example.brainboost.Tests.fragments.questions;
 import com.example.brainboost.Tests.views.tests;
@@ -27,6 +35,7 @@ import java.util.Calendar;
 public class seeCourses extends AppCompatActivity {
     TextView description;
     TextView title;
+    TextView course_name2;
     TextView status;
     ImageButton arrow;
     Button button;
@@ -48,10 +57,34 @@ public class seeCourses extends AppCompatActivity {
         description = findViewById(R.id.courseDescription);
         title = findViewById(R.id.courseName);
         status = findViewById(R.id.currentState);
-        evaluation = findViewById(R.id.evaluation);
+//        evaluation = findViewById(R.id.evaluation);
         button = findViewById(R.id.makeDate);
         register = findViewById(R.id.registerCourse);
+        course_name2 = findViewById(R.id.course_name2);
         Context context = this;
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("course_id");
+        HomeHelper homeHelper = new HomeHelper();
+        homeHelper.getCourseById(this, id, new FetchCallback<CourseData>() {
+            @Override
+            public void onSuccess(CourseData response) {
+                course_name2.setText(response.name);
+                title.setText(response.name);
+//                description.setText(response.);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                int index = 1;
+                for(LessonsData lesson: response.Lessons){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title", lesson.title);
+                    bundle.putInt("number", index);
+                    fragmentTransaction.add(R.id.fragmentContainerView, Lesson.class, bundle);
+                    index ++;
+                }
+                fragmentTransaction.commit();
+
+            }
+        });
         arrow = findViewById(R.id.arrow);
         description.setMaxLines(MAX_LINES);
         arrow.setOnClickListener(new View.OnClickListener() {
@@ -110,14 +143,14 @@ public class seeCourses extends AppCompatActivity {
         });
 
 
-        evaluation.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, tests.class);
-                startActivity(intent);
-            }
-        });
+//        evaluation.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(context, tests.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
         register.setOnClickListener(new View.OnClickListener() {

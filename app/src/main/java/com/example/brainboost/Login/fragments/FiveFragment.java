@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.brainboost.Account.views.account;
 import com.example.brainboost.Courses.views.seeCourses;
 import com.example.brainboost.Login.views.Home;
+import com.example.brainboost.Login.views.OnBoard;
 import com.example.brainboost.R;
 
 import java.util.ArrayList;
@@ -89,22 +90,18 @@ public class FiveFragment extends Fragment {
             public void onClick(View v) {
                 //eliminar preferencia
                 // Obtener una instancia de SharedPreferences
-                SharedPreferences prefs = getContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
+                SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
 // Obtener un editor de SharedPreferences
                 SharedPreferences.Editor editor = prefs.edit();
-                Toast toast = Toast.makeText(getContext(), "Cambiado aaaaaa"+prefs.getBoolean("loggedIn",false), Toast.LENGTH_LONG);
-                toast.show();
-
-
-// Eliminar la preferencia con el nombre "my_preference"
-                editor.putBoolean("loggedIn",false);
-                toast = Toast.makeText(getContext(), "Cambiado"+prefs.getBoolean("loggedIn",false), Toast.LENGTH_LONG);
-                toast.show();
-
-// Guardar los cambios
+                editor.putString("userID", "");
                 editor.apply();
+                intento = new Intent(getActivity(), OnBoard.class);
+                startActivity(intento);
+                getActivity().finish();
 
+                Toast toast = Toast.makeText(getContext(), "Cerrando Sesion", Toast.LENGTH_LONG);
+                toast.show();
             }
         });
         favorites.setOnClickListener(new View.OnClickListener() {

@@ -20,13 +20,15 @@ import com.example.brainboost.Login.fragments.FourFragment;
 import com.example.brainboost.Login.fragments.SecondFragment;
 import com.example.brainboost.Login.fragments.ThirdFragment;
 
+import com.example.brainboost.Login.helpers.CourseData;
+import com.example.brainboost.Login.helpers.FetchCallback;
 import com.example.brainboost.Login.helpers.HomeHelper;
 import com.example.brainboost.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.List;
+
 public class Home extends AppCompatActivity {
-
-
     FirstFragment firstFragment= new FirstFragment();
     SecondFragment secondFragment= new SecondFragment();
     ThirdFragment thirdFragment= new ThirdFragment();
@@ -51,7 +53,12 @@ public class Home extends AppCompatActivity {
             startActivity(intent);
         }
         loadFragment(firstFragment);
-        homeHelper.getAllCourses(this);
+        homeHelper.getAllCourses(this, new FetchCallback<List<CourseData>>() {
+            @Override
+            public void onSuccess(List<CourseData> response) {
+
+            }
+        });
     }
     private final BottomNavigationView.OnItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnItemSelectedListener() {
         @Override

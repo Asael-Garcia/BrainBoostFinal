@@ -1,9 +1,5 @@
 package com.example.brainboost.Login.fragments;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -16,18 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.brainboost.Courses.fragments.allCourses;
+import com.example.brainboost.Courses.fragments.AllCourses;
 import com.example.brainboost.Courses.fragments.myCourses;
-import com.example.brainboost.Courses.views.seeCourses;
 import com.example.brainboost.R;
 
-import org.w3c.dom.Text;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,7 +33,7 @@ public class SecondFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    allCourses FragmentAll= new allCourses();
+    AllCourses FragmentAll= new AllCourses();
     myCourses FragmentmyCourses = new myCourses();
 
     // TODO: Rename and change types of parameters
@@ -91,7 +83,7 @@ public class SecondFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_second, container, false);
-        FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction= requireActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.layoutCourses,FragmentAll);
         transaction.commit();
         all= view.findViewById(R.id.all);
@@ -107,7 +99,7 @@ public class SecondFragment extends Fragment {
             //
             public void onClick(View v) {
 
-                FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transaction= requireActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.layoutCourses,FragmentAll);
                 transaction.commit();
                 all.setBackgroundTintList(backgrounBlue);
@@ -117,19 +109,16 @@ public class SecondFragment extends Fragment {
                 myCourses.setTextColor(getResources().getColor(R.color.gray));
             }
         });
-        myCourses.setOnClickListener(new View.OnClickListener() {
-            @Override
-            //
-            public void onClick(View v) {
-                FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.layoutCourses,FragmentmyCourses);
-                transaction.commit();
-                myCourses.setBackgroundTintList(backgrounBlue);
-                all.setBackgroundTintList(backgroundWhite);
+        //
+        myCourses.setOnClickListener(v -> {
+            FragmentTransaction transaction1 = requireActivity().getSupportFragmentManager().beginTransaction();
+            transaction1.replace(R.id.layoutCourses,FragmentmyCourses);
+            transaction1.commit();
+            myCourses.setBackgroundTintList(backgrounBlue);
+            all.setBackgroundTintList(backgroundWhite);
 
-                myCourses.setTextColor(getResources().getColor(R.color.white));
-                all.setTextColor(getResources().getColor(R.color.gray));
-            }
+            myCourses.setTextColor(getResources().getColor(R.color.white));
+            all.setTextColor(getResources().getColor(R.color.gray));
         });
         return view;
     }

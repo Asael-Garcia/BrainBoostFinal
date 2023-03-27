@@ -1,7 +1,5 @@
 package com.example.brainboost.Login.fragments;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,10 +11,8 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.brainboost.Courses.views.seeCourses;
 import com.example.brainboost.Messages.fragments.dates;
 import com.example.brainboost.Messages.fragments.messages;
 import com.example.brainboost.R;

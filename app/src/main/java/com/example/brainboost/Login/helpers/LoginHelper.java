@@ -6,9 +6,11 @@ import android.content.SharedPreferences;
 import android.util.Patterns;
 import android.widget.Toast;
 
+import com.example.brainboost.Login.helpers.requests.LoginRequests;
 import com.example.brainboost.Login.views.Home;
 import com.example.brainboost.Login.views.Login;
 import com.example.brainboost.Login.views.Signup;
+import com.example.brainboost.config.Config;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,7 +21,6 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 import java.util.regex.Pattern;
-import android.content.Intent;
 
 
 interface LoginApiService{
@@ -35,7 +36,7 @@ interface LoginApiService{
 
 public class LoginHelper {
     private static LoginApiService API_SERVICE;
-    private static final String BASE_URL = "https://brain-boost.fly.dev/";
+    private static final String BASE_URL = Config.API_URL;
 
     public void login(android.content.Context context, String email, String password){
         Retrofit retrofit = new Retrofit.Builder()
@@ -95,10 +96,10 @@ public class LoginHelper {
         SharedPreferences sharedPreferences = ctx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String userId = sharedPreferences.getString("userID", "");
         if (!userId.equals("")) {
-            Toast.makeText(ctx, "Ya ha iniciado sesión", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(ctx, "Ya ha iniciado sesión", Toast.LENGTH_SHORT).show();
             return true;
         }
-        Toast.makeText(ctx, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(ctx, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
         return false;
     }
     public void saveId(android.content.Context ctx, String id){

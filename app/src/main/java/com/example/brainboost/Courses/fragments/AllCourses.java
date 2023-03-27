@@ -1,31 +1,19 @@
 package com.example.brainboost.Courses.fragments;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.example.brainboost.Courses.views.seeCourses;
-import com.example.brainboost.Login.helpers.CourseData;
-import com.example.brainboost.Login.helpers.FetchCallback;
+import com.example.brainboost.Login.helpers.interfaces.CourseData;
+import com.example.brainboost.Login.helpers.interfaces.FetchCallback;
 import com.example.brainboost.Login.helpers.HomeHelper;
+import com.example.brainboost.Login.helpers.requests.HomeRequests;
 import com.example.brainboost.R;
 
 import java.util.List;

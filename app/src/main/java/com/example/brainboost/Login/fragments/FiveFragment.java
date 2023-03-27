@@ -2,7 +2,6 @@ package com.example.brainboost.Login.fragments;
 
 import static android.content.Context.MODE_PRIVATE;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,8 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.brainboost.Account.views.account;
-import com.example.brainboost.Courses.views.seeCourses;
-import com.example.brainboost.Login.views.Home;
 import com.example.brainboost.Login.views.OnBoard;
 import com.example.brainboost.R;
 

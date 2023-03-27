@@ -13,13 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.brainboost.Courses.views.seeCourses;
+import com.example.brainboost.Courses.views.CourseDetails;
 import com.example.brainboost.R;
 
 public class Course extends Fragment {
     TextView nameText;
     TextView teacherText;
     String id;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,7 @@ public class Course extends Fragment {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), seeCourses.class);
+                Intent intent = new Intent(getActivity(), CourseDetails.class);
                 intent.putExtra("course_id", id);
                 Log.e("id", id);
                 startActivity(intent);
@@ -58,6 +59,7 @@ public class Course extends Fragment {
                         .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // Se añade a favoritos
+
                             }
                         })
                         .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

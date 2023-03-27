@@ -22,7 +22,9 @@
             android:layout_marginLeft="60dp"
             android:fontFamily="@font/poppins"
             android:text="Lesson name"
+            android:maxLines="1"
             android:textColor="#1F1F39"
+            android:ellipsize="end"
             android:textSize="20sp" />
                 <TextView
                     android:layout_marginLeft="60dp"

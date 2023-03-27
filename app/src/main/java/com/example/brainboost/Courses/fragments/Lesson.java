@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.brainboost.Login.helpers.HomeHelper;
 import com.example.brainboost.R;
 
 /**
@@ -32,6 +33,7 @@ public class Lesson extends Fragment {
     TextView titleText;
     TextView numberText;
     ImageButton open_video;
+    HomeHelper homeHelper = new HomeHelper();
 
     public Lesson() {
         // Required empty public constructor
@@ -76,16 +78,15 @@ public class Lesson extends Fragment {
             String link = bundle.getString("link");
             titleText = view.findViewById(R.id.name);
             numberText = view.findViewById(R.id.number);
-            titleText.setText(title);
             open_video = view.findViewById(R.id.open_video);
             open_video.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     String url;
-                    if(link != null){
+                    if(link != null && !link.equals("")) {
                          url = link;
                     }
-                    else{
+                    else {
                         url = "https://www.youtube.com/watch?v=YuTuj9YHH_k";
                     }
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
@@ -98,7 +99,7 @@ public class Lesson extends Fragment {
             else {
                 numberText.setText(number);
             }
-
+            titleText.setText(homeHelper.getSafeString(title));
         }
         return view;
     }

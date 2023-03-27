@@ -22,17 +22,16 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.brainboost.Courses.fragments.Lesson;
-import com.example.brainboost.Login.helpers.CourseData;
-import com.example.brainboost.Login.helpers.FetchCallback;
+import com.example.brainboost.Login.helpers.interfaces.CourseData;
+import com.example.brainboost.Login.helpers.interfaces.FetchCallback;
 import com.example.brainboost.Login.helpers.HomeHelper;
-import com.example.brainboost.Login.helpers.LessonsData;
+import com.example.brainboost.Login.helpers.interfaces.LessonsData;
+import com.example.brainboost.Login.helpers.requests.HomeRequests;
 import com.example.brainboost.R;
-import com.example.brainboost.Tests.fragments.questions;
-import com.example.brainboost.Tests.views.tests;
 
 import java.util.Calendar;
 
-public class seeCourses extends AppCompatActivity {
+public class CourseDetails extends AppCompatActivity {
     TextView description;
     TextView title;
     TextView course_name2;
@@ -53,7 +52,7 @@ public class seeCourses extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_see_courses);
+        setContentView(R.layout.activity_course_details);
         description = findViewById(R.id.courseDescription);
         title = findViewById(R.id.courseName);
         status = findViewById(R.id.currentState);
@@ -65,24 +64,35 @@ public class seeCourses extends AppCompatActivity {
         Intent intent = getIntent();
         String id = intent.getStringExtra("course_id");
         HomeHelper homeHelper = new HomeHelper();
-        homeHelper.getCourseById(this, id, new FetchCallback<CourseData>() {
+        homeHelper.getCourseById(this, id, new FetchCallback<HomeRequests.GetCourseByIdResponse>() {
             @Override
-            public void onSuccess(CourseData response) {
-                course_name2.setText(response.name);
-                title.setText(response.name);
+            public void onSuccess(HomeRequests.GetCourseByIdResponse response) {
+                course_name2.setText(response.data.name);
+                title.setText(response.data.name);
+                Log.e("suscrito", Boolean.toString(response.isInCourse));
+                if(response.isInCourse){
+                    status.setText("Inscrito");
+                }
+                else {
+                    status.setText("No inscrito");
+                }
 //                description.setText(response.);
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 int index = 1;
-                for(LessonsData lesson: response.Lessons){
+                for(LessonsData lesson: response.data.Lessons){
                     Bundle bundle = new Bundle();
                     bundle.putString("title", lesson.title);
                     bundle.putInt("number", index);
+                    bundle.putString("link", lesson.link);
                     fragmentTransaction.add(R.id.fragmentContainerView, Lesson.class, bundle);
                     index ++;
                 }
                 fragmentTransaction.commit();
-
+                if(response.isInCourse){
+                    Log.e("in_course", Boolean.toString(response.isInCourse));
+                    register.setVisibility(View.INVISIBLE);
+                }
             }
         });
         arrow = findViewById(R.id.arrow);
@@ -98,7 +108,6 @@ public class seeCourses extends AppCompatActivity {
 
                 } else {
                     description.setMaxLines(MAX_LINES);
-
                 }
             }
         });
@@ -161,9 +170,16 @@ public class seeCourses extends AppCompatActivity {
                 builder.setTitle("Inscribirse a curso")
                         .setMessage("Te inscribiras a: "+title.getText().toString())
                         .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
+                            public void onClick(DialogInterface dialog, int id_a) {
                                 // Acciones a realizar al hacer clic en el botón Aceptar
-                                status.setText("Inscrito");
+                                homeHelper.subscribe(String.valueOf(id), homeHelper.getUserId(context), new FetchCallback<String>() {
+                                    @Override
+                                    public void onSuccess(String response) {
+                                        status.setText("Inscrito");
+                                        register.setVisibility(View.GONE);
+                                    }
+                                });
+
                             }
                         })
                         .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

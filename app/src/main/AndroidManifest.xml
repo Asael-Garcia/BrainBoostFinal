@@ -29,7 +29,7 @@
             android:name=".Account.views.account"
             android:exported="false" />
         <activity
-            android:name=".Courses.views.seeCourses"
+            android:name=".Courses.views.CourseDetails"
             android:exported="false" />
         <activity
             android:name=".Login.views.Home"

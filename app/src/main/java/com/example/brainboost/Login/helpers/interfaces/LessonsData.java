@@ -1,4 +1,4 @@
-package com.example.brainboost.Login.helpers;
+package com.example.brainboost.Login.helpers.interfaces;
 
 public class LessonsData {
     public String id;

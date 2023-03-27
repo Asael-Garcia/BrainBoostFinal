@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Messages.views.seeMessages">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:orientation="vertical">
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="25sp"
+                    android:text="Valdivia"/>
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="#9AFFFFFF"
+                    android:layout_height="wrap_content"
+                    android:text="Ultima conexión: hace 10min"/>
+            </LinearLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="550dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </ScrollView>
+            <!-- Contenedor de entrada de mensaje -->
+            <LinearLayout
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:padding="8dp">
+
+                <!-- Campo de texto para escribir el mensaje -->
+                <EditText
+                    android:id="@+id/edit_text_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLines="5"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <!-- Botón para enviar el mensaje -->
+                <Button
+                    android:id="@+id/button_send_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enviar"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/blue"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+</RelativeLayout>

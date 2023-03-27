@@ -163,6 +163,9 @@ public class allCourses extends Fragment {
         marginButton = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, bottom, getResources().getDisplayMetrics());
         layoutParams.setMargins((int) marginLeft,(int)  marginTop,(int)  marginRight,(int) marginButton);
         frameLayout.setLayoutParams(layoutParams);
+        //id framelayout
+        //int myFrameLayoutId = 1234; // Puedes cambiar este número a cualquier valor entero que desees
+       // frameLayout.setId(myFrameLayoutId);
 
         //imagene:
         ImageView imageView= new ImageView(context);
@@ -253,6 +256,7 @@ public class allCourses extends Fragment {
         textView3.setTextSize(10);
        // frameLayout.addView(textView,textView2,textView3);
         frameLayout.addView(textView3);
+
 
 
 

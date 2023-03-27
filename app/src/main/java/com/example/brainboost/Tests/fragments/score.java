@@ -1,14 +1,22 @@
 package com.example.brainboost.Tests.fragments;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.brainboost.Courses.views.seeCourses;
+import com.example.brainboost.Login.views.Home;
 import com.example.brainboost.R;
+import com.example.brainboost.Tests.views.tests;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +33,7 @@ public class score extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    Button next;
 
     public score() {
         // Required empty public constructor
@@ -61,6 +70,16 @@ public class score extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_score, container, false);
+        View view=inflater.inflate(R.layout.fragment_score, container, false);
+        next=view.findViewById(R.id.next);
+        Context context=getContext();
+        Activity activity=getActivity();
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.finish();
+            }
+        });
+        return view;
     }
 }

@@ -67,22 +67,23 @@
                         android:layout_height="wrap_content">
                         <RadioButton
                             android:id="@+id/answer1.1"
+                            android:checked="true"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 1"/>
+                            android:text="Bien"/>
                         <RadioButton
                             android:id="@+id/answer1.2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 2"/>
+                            android:text="Mal"/>
                         <RadioButton
                             android:id="@+id/answer1.3"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 3"/>
+                            android:text="Trato de mejorar"/>
                     </RadioGroup>
                 </LinearLayout>
                 <LinearLayout
@@ -116,6 +117,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
+                            android:checked="true"
                             android:text="Platano"/>
                         <RadioButton
                             android:id="@+id/answer2.2"
@@ -161,19 +163,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 1"/>
+                            android:text="Si"/>
                         <RadioButton
                             android:id="@+id/answer3.2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 2"/>
+                            android:text="No"/>
                         <RadioButton
                             android:id="@+id/answer3.3"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 3"/>
+                            android:checked="true"
+                            android:text="No borre nada profe"/>
                     </RadioGroup>
                 </LinearLayout>
                 <LinearLayout
@@ -207,19 +210,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 1"/>
+                            android:text="Si"/>
                         <RadioButton
                             android:id="@+id/answer4.2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 2"/>
+                            android:text="La netota"
+                            android:checked="true"/>
                         <RadioButton
                             android:id="@+id/answer4.3"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 3"/>
+                            android:text="No lo creo, es libre de hacer lo que quiera"/>
                     </RadioGroup>
                 </LinearLayout>
                 <LinearLayout
@@ -254,19 +258,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 1"/>
+                            android:text="A es menelillo"/>
                         <RadioButton
                             android:id="@+id/answer5.2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 2"/>
+                            android:text="Vete alv mani"
+                            android:checked="true"/>
                         <RadioButton
                             android:id="@+id/answer5.3"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins"
-                            android:text="Opcion 3"/>
+                            android:text="Tkm mani manito"/>
                     </RadioGroup>
                 </LinearLayout>
                 <!--Botones para enviar datos -->
@@ -281,7 +286,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
                     <Button
-
                         android:backgroundTint="@color/blue"
                         android:textAllCaps="false"
                         android:fontFamily="@font/poppins_medium"

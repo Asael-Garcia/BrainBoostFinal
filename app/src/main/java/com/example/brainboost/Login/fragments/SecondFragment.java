@@ -105,7 +105,9 @@ public class SecondFragment extends Fragment {
                 all.setBackgroundTintList(backgrounBlue);
                 myCourses.setBackgroundTintList(backgroundWhite);
 
+
                 all.setTextColor(getResources().getColor(R.color.white));
+
                 myCourses.setTextColor(getResources().getColor(R.color.gray));
             }
         });
@@ -118,7 +120,9 @@ public class SecondFragment extends Fragment {
             all.setBackgroundTintList(backgroundWhite);
 
             myCourses.setTextColor(getResources().getColor(R.color.white));
+
             all.setTextColor(getResources().getColor(R.color.gray));
+
         });
         return view;
     }

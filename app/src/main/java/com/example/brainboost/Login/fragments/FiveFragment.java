@@ -82,9 +82,12 @@ public class FiveFragment extends Fragment {
 
         intento = new Intent(getActivity(), account.class);
 
+
         close.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
                 //eliminar preferencia
                 // Obtener una instancia de SharedPreferences
                 SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);

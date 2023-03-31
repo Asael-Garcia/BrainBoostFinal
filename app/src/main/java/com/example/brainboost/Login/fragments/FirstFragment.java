@@ -68,12 +68,18 @@ public class FirstFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
     public static FirstFragment newInstance(String param1, String param2) {
         FirstFragment fragment = new FirstFragment();
+
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
+
         args.putString(ARG_PARAM2, param2);
+
         fragment.setArguments(args);
+
         return fragment;
     }
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,10 +100,13 @@ public class FirstFragment extends Fragment {
         //se toman las imagenes
         user= (ImageView) view.findViewById(R.id.imageUser);
         cardgirl= (ImageView) view.findViewById(R.id.cardgirl);
+
         cardboy= (ImageView) view.findViewById(R.id.cardboy);
         carddone= (ImageView) view.findViewById(R.id.carddone);
+
         metup= (ImageView) view.findViewById(R.id.metup);
         bar= (ProgressBar) view.findViewById(R.id.progressBar);
+
         time= (TextView) view.findViewById(R.id.time);
         start= (Button) view.findViewById(R.id.start);
         //se cargan las imagenes
@@ -114,7 +123,9 @@ public class FirstFragment extends Fragment {
 
         long totalTimeUsed = 0;
         long minutes=0;
+
         for (UsageStats usageStats : usageStatsList) {
+
             if (usageStats.getPackageName().equals("com.example.brainboost")) {
                 totalTimeUsed += usageStats.getTotalTimeInForeground();
             }

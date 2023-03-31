@@ -87,8 +87,10 @@ public class CourseDetails extends AppCompatActivity {
                     bundle.putString("link", lesson.link);
                     fragmentTransaction.add(R.id.fragmentContainerView, Lesson.class, bundle);
                     index ++;
+
                 }
                 fragmentTransaction.commit();
+
                 if(response.isInCourse){
                     Log.e("in_course", Boolean.toString(response.isInCourse));
                     register.setVisibility(View.INVISIBLE);
@@ -108,6 +110,7 @@ public class CourseDetails extends AppCompatActivity {
 
                 } else {
                     description.setMaxLines(MAX_LINES);
+
                 }
             }
         });

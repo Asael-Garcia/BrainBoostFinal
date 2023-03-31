@@ -34,6 +34,7 @@ public class Course extends Fragment {
         Bundle bundle = getArguments();
         nameText = view.findViewById(R.id.name);
         teacherText = view.findViewById(R.id.teacher);
+
         if(bundle != null) {
             String name = bundle.getString("name");
             String teacher_name = bundle.getString("teacher_name");
@@ -41,6 +42,7 @@ public class Course extends Fragment {
             nameText.setText(name);
             teacherText.setText(teacher_name);
         }
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

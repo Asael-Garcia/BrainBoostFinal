@@ -42,11 +42,16 @@ public class AllCourses extends Fragment {
                 for(CourseData course: response) {
 //                    createLayout(view, course.name, (course.User.first_name + " " + course.User.last_name), course.Lessons.size(), course.id);
                     Bundle bundle = new Bundle();
+
                     bundle.putString("name", course.name);
                     bundle.putString("teacher_name", (course.User.first_name + " " + course.User.last_name));
+
                     bundle.putInt("lessons", course.Lessons.size());
+
                     bundle.putString("id", course.id);
+
                     fragmentTransaction.add(R.id.contentPanel, Course.class, bundle);
+
                 }
                 fragmentTransaction.commit();
             }

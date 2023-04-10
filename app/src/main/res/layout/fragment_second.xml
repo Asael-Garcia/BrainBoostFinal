@@ -15,7 +15,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="50dp"
-          android:text="Cursos"
+          android:text="Autos"
           android:textColor="#1F1F39"
           android:fontFamily="@font/poppins_semibold"
           android:layout_weight="1"
@@ -69,7 +69,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="#3D5CFF"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Matematicas"
+                            android:text="Ford"
                             android:textSize="16sp" />
                     </FrameLayout>
                     <FrameLayout
@@ -91,7 +91,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="#9065BE"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Arte"
+                            android:text="Chevrolet"
                             android:textSize="16sp" />
                     </FrameLayout>
                     <FrameLayout
@@ -113,7 +113,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="#FF6905"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Musica"
+                            android:text="Nissan"
                             android:textSize="16sp" />
                     </FrameLayout>
                     <FrameLayout
@@ -136,7 +136,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="#38C875"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Tecnología"
+                            android:text="Volkswagen"
                             android:textSize="16sp" />
                     </FrameLayout>
                 </LinearLayout>
@@ -152,7 +152,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Elige tu curso"
+                    android:text="Elige tu post preferido"
                     android:textColor="#1F1F39"
                     android:textSize="20sp" />
 
@@ -169,7 +169,7 @@
                         android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
                         android:background="@drawable/corner"
-                        android:backgroundTint="#3D5CFF"
+                        android:backgroundTint="#C13737"
                         android:button="@null"
                         android:fontFamily="@font/poppins"
                         android:text="Todos"
@@ -188,7 +188,7 @@
                         android:backgroundTint="@color/white"
                         android:button="@null"
                         android:fontFamily="@font/poppins"
-                        android:text="Mis cursos"
+                        android:text="Mis posts"
                         android:textAlignment="center"
                         android:textColor="@color/gray"
                         android:textSize="17sp"></TextView>

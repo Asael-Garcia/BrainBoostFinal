@@ -92,7 +92,7 @@ public class SecondFragment extends Fragment {
         //para cambiar lo del fragment de radiogrouo:
 
 
-        ColorStateList backgrounBlue = ColorStateList.valueOf(Color.parseColor("#3D5CFF"));
+        ColorStateList backgrounBlue = ColorStateList.valueOf(Color.parseColor("#C13737"));
         ColorStateList backgroundWhite = ColorStateList.valueOf(Color.parseColor("#FFFFFF"));
         all.setOnClickListener(new View.OnClickListener() {
             @Override

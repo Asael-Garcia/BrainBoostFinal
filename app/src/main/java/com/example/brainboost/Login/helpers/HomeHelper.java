@@ -58,17 +58,17 @@ public class HomeHelper {
             .build();
         HomeApiService homeApiService = retrofit.create(HomeApiService.class);
         Call<HomeRequests.SubscribeToCourse> call = homeApiService.subscribeCourse(user_id, course_id);
-        call.enqueue(new Callback<HomeRequests.SubscribeToCourse>() {
-            @Override
-            public void onResponse(Call<HomeRequests.SubscribeToCourse> call, Response<HomeRequests.SubscribeToCourse> response) {
-                assert response.body() != null;
-                callback.onSuccess(response.body().msg);
-            }
-            @Override
-            public void onFailure(Call<HomeRequests.SubscribeToCourse> call, Throwable t) {
-
-            }
-        });
+//        call.enqueue(new Callback<HomeRequests.SubscribeToCourse>() {
+//            @Override
+//            public void onResponse(Call<HomeRequests.SubscribeToCourse> call, Response<HomeRequests.SubscribeToCourse> response) {
+//                assert response.body() != null;
+//                callback.onSuccess(response.body().msg);
+//            }
+//            @Override
+//            public void onFailure(Call<HomeRequests.SubscribeToCourse> call, Throwable t) {
+//
+//            }
+//        });
     }
     public void getAllCourses(Context context, final FetchCallback<List<CourseData>> callback){
         Retrofit retrofit = new Retrofit.Builder()
@@ -77,18 +77,18 @@ public class HomeHelper {
             .build();
         HomeApiService homeApiService = retrofit.create(HomeApiService.class);
         Call<HomeRequests.GetAllCoursesResponse> call = homeApiService.getAllCourses();
-        call.enqueue(new Callback<HomeRequests.GetAllCoursesResponse>() {
-            @Override
-            public void onResponse(Call<HomeRequests.GetAllCoursesResponse> call, Response<HomeRequests.GetAllCoursesResponse> response) {
-                Toast.makeText(context, response.body().msg, Toast.LENGTH_SHORT).show();
-                callback.onSuccess(response.body().data);
-            }
-
-            @Override
-            public void onFailure(Call<HomeRequests.GetAllCoursesResponse> call, Throwable t) {
-
-            }
-        });
+//        call.enqueue(new Callback<HomeRequests.GetAllCoursesResponse>() {
+//            @Override
+//            public void onResponse(Call<HomeRequests.GetAllCoursesResponse> call, Response<HomeRequests.GetAllCoursesResponse> response) {
+//                Toast.makeText(context, response.body().msg, Toast.LENGTH_SHORT).show();
+//                callback.onSuccess(response.body().data);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<HomeRequests.GetAllCoursesResponse> call, Throwable t) {
+//
+//            }
+//        });
     }
     public void getCourseById(Context context, String id, final FetchCallback<HomeRequests.GetCourseByIdResponse> callback){
         Retrofit retrofit = new Retrofit.Builder()
@@ -98,15 +98,15 @@ public class HomeHelper {
         HomeApiService homeApiService = retrofit.create(HomeApiService.class);
         Call<HomeRequests.GetCourseByIdResponse> call = homeApiService.getCourseById(id, getUserId(context));
         final List<CourseData> data = new ArrayList<>();
-        call.enqueue(new Callback<HomeRequests.GetCourseByIdResponse>() {
-            @Override
-            public void onResponse(Call<HomeRequests.GetCourseByIdResponse> call, Response<HomeRequests.GetCourseByIdResponse> response) {
-                callback.onSuccess(response.body());
-            }
-            @Override
-            public void onFailure(Call<HomeRequests.GetCourseByIdResponse> call, Throwable t) {
-
-            }
-        });
+//        call.enqueue(new Callback<HomeRequests.GetCourseByIdResponse>() {
+//            @Override
+//            public void onResponse(Call<HomeRequests.GetCourseByIdResponse> call, Response<HomeRequests.GetCourseByIdResponse> response) {
+//                callback.onSuccess(response.body());
+//            }
+//            @Override
+//            public void onFailure(Call<HomeRequests.GetCourseByIdResponse> call, Throwable t) {
+//
+//            }
+//        });
     }
 }

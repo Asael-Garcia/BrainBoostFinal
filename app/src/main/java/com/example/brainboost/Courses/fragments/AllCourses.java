@@ -34,28 +34,28 @@ public class AllCourses extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_all_courses, container, false);
-        homeHelper.getAllCourses(getContext(), new FetchCallback<List<CourseData>>() {
-            @Override
-            public void onSuccess(List<CourseData> response) {
-                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                for(CourseData course: response) {
-//                    createLayout(view, course.name, (course.User.first_name + " " + course.User.last_name), course.Lessons.size(), course.id);
-                    Bundle bundle = new Bundle();
-
-                    bundle.putString("name", course.name);
-                    bundle.putString("teacher_name", (course.User.first_name + " " + course.User.last_name));
-
-                    bundle.putInt("lessons", course.Lessons.size());
-
-                    bundle.putString("id", course.id);
-
-                    fragmentTransaction.add(R.id.contentPanel, Course.class, bundle);
-
-                }
-                fragmentTransaction.commit();
-            }
-        });
+//        homeHelper.getAllCourses(getContext(), new FetchCallback<List<CourseData>>() {
+//            @Override
+//            public void onSuccess(List<CourseData> response) {
+//                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                for(CourseData course: response) {
+////                    createLayout(view, course.name, (course.User.first_name + " " + course.User.last_name), course.Lessons.size(), course.id);
+//                    Bundle bundle = new Bundle();
+//
+//                    bundle.putString("name", course.name);
+//                    bundle.putString("teacher_name", (course.User.first_name + " " + course.User.last_name));
+//
+//                    bundle.putInt("lessons", course.Lessons.size());
+//
+//                    bundle.putString("id", course.id);
+//
+//                    fragmentTransaction.add(R.id.contentPanel, Course.class, bundle);
+//
+//                }
+//                fragmentTransaction.commit();
+//            }
+//        });
         return view;
     }
 }

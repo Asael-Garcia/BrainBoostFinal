@@ -6,16 +6,16 @@
         android:title="Home" />
     <item
         android:id="@+id/secondFragment"
-        android:icon="@drawable/course"
-        android:title="Curso" />
+        android:icon="@drawable/post"
+        android:title="Posts" />
     <item
         android:id="@+id/thirdFragment"
         android:icon="@android:drawable/ic_search_category_default"
         android:title="Buscar" />
     <item
         android:id="@+id/fourFragment"
-        android:icon="@drawable/message"
-        android:title="Mensages" />
+        android:icon="@drawable/messages"
+        android:title="Foros" />
     <item
         android:id="@+id/fiveFragment"
         android:icon="@drawable/account"

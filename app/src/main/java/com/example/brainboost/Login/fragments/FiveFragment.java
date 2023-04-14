@@ -77,7 +77,7 @@ public class FiveFragment extends Fragment {
         LinearLayout favorites=view.findViewById(R.id.favorites);
         LinearLayout editAccount=view.findViewById(R.id.editAccount);
         LinearLayout settings=view.findViewById(R.id.settings);
-        LinearLayout help=view.findViewById(R.id.help);
+
         LinearLayout close=view.findViewById(R.id.close);
 
         intento = new Intent(getActivity(), account.class);
@@ -125,13 +125,7 @@ public class FiveFragment extends Fragment {
                 startActivity(intento);
             }
         });
-        help.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intento.putExtra("key",3);
-                startActivity(intento);
-            }
-        });
+
 
 
         return view;

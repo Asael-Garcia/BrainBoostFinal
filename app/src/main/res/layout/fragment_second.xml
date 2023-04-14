@@ -15,7 +15,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="50dp"
-          android:text="Autos"
+          android:text="Ver por marca"
           android:textColor="#1F1F39"
           android:fontFamily="@font/poppins_semibold"
           android:layout_weight="1"
@@ -58,7 +58,7 @@
                             android:id="@+id/cardgirl"
                             android:layout_width="140dp"
                             android:layout_height="140dp"
-                            android:src="@drawable/cardgirl"/>
+                            android:src="@drawable/ford"/>
                         <TextView
                             android:background="@drawable/course_input"
                             android:layout_gravity="end|bottom"
@@ -81,7 +81,7 @@
                         <ImageView
                             android:layout_width="140dp"
                             android:layout_height="140dp"
-                            android:src="@drawable/paiting"/>
+                            android:src="@drawable/chevrolet"/>
                         <TextView
                             android:background="@drawable/course_input"
                             android:layout_gravity="end|bottom"
@@ -103,7 +103,7 @@
                         <ImageView
                             android:layout_width="140dp"
                             android:layout_height="140dp"
-                            android:src="@drawable/music"/>
+                            android:src="@drawable/nissan"/>
                         <TextView
                             android:background="@drawable/course_input"
                             android:layout_gravity="end|bottom"
@@ -126,7 +126,7 @@
                         <ImageView
                             android:layout_width="140dp"
                             android:layout_height="140dp"
-                            android:src="@drawable/tecnology"/>
+                            android:src="@drawable/volvo"/>
                         <TextView
                             android:background="@drawable/course_input"
                             android:layout_gravity="end|bottom"

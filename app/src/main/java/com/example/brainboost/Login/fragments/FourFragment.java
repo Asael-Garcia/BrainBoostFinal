@@ -78,17 +78,12 @@ public class FourFragment extends Fragment {
         transaction.commit();
         View view=inflater.inflate(R.layout.fragment_four, container, false);
         messages=view.findViewById(R.id.messages);
-        dates=view.findViewById(R.id.dates);
         String hexColor1 = "#1F1F39"; //
         String hexColor2 = "#858597"; //
         int color1 = Color.parseColor(hexColor1);
         int color2 = Color.parseColor(hexColor2);
         ColorStateList backgrounGray = ColorStateList.valueOf(Color.parseColor("#F4F3FD"));
         ColorStateList backgroundWhite = ColorStateList.valueOf(Color.parseColor("#FFFFFF"));
-
-
-
-
         messages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,33 +91,14 @@ public class FourFragment extends Fragment {
                 transaction.replace(R.id.content,FragmenMessages);
                 transaction.commit();
                 messages.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
-                dates.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
 
                 messages.setTextColor(getResources().getColor(R.color.anotherBlue));
-                dates.setTextColor(getResources().getColor(R.color.gray));
 
                 messages.setBackgroundTintList(backgroundWhite);
-                dates.setBackgroundTintList(backgrounGray);
 
             }
         });
-        dates.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.content,FragmentDates);
-                transaction.commit();
 
-                dates.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
-                messages.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
-
-                dates.setTextColor(getResources().getColor(R.color.anotherBlue));
-                messages.setTextColor(getResources().getColor(R.color.gray));
-
-                dates.setBackgroundTintList(backgroundWhite);
-                messages.setBackgroundTintList(backgrounGray);
-            }
-        });
         return view;
     }
 }

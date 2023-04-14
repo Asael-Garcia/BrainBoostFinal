@@ -1,13 +1,18 @@
 package com.example.brainboost.Courses.fragments;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.brainboost.Courses.views.CreateCourse;
 import com.example.brainboost.R;
 
 /**
@@ -21,6 +26,8 @@ public class myCourses extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    TextView text;  Intent intent;
+    Context context;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -61,6 +68,17 @@ public class myCourses extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_courses, container, false);
+        View view = inflater.inflate(R.layout.fragment_my_courses, container, false);
+        text=view.findViewById(R.id.createPost);
+        context=getContext();
+        text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            //
+            public void onClick(View v) {
+                intent= new Intent(context, CreateCourse.class);
+                startActivity(intent);
+            }
+        });
+        return view;
     }
 }

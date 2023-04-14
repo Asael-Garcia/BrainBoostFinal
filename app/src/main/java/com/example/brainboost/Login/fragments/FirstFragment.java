@@ -99,9 +99,6 @@ public class FirstFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_first, container, false);
         //se toman las imagenes
         user= (ImageView) view.findViewById(R.id.imageUser);
-        cardgirl= (ImageView) view.findViewById(R.id.cardgirl);
-
-        cardboy= (ImageView) view.findViewById(R.id.cardboy);
         carddone= (ImageView) view.findViewById(R.id.carddone);
 
         metup= (ImageView) view.findViewById(R.id.metup);
@@ -111,8 +108,6 @@ public class FirstFragment extends Fragment {
         start= (Button) view.findViewById(R.id.start);
         //se cargan las imagenes
         user.setImageResource(R.drawable.avatar);
-        cardgirl.setImageResource(R.drawable.cardgirl);
-        cardboy.setImageResource(R.drawable.cardboy);
         carddone.setImageResource(R.drawable.carddone);
         metup.setImageResource(R.drawable.metup);
 

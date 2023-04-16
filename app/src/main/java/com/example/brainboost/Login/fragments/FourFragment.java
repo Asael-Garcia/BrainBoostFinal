@@ -1,5 +1,6 @@
 package com.example.brainboost.Login.fragments;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,10 +12,12 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.brainboost.Messages.fragments.dates;
 import com.example.brainboost.Messages.fragments.messages;
+import com.example.brainboost.Messages.views.seeMessages;
 import com.example.brainboost.R;
 
 /**
@@ -32,6 +35,7 @@ public class FourFragment extends Fragment {
 
     messages FragmenMessages= new messages();
    dates FragmentDates=new dates();
+   FrameLayout frameLayout;
     TextView dates;
 
     // TODO: Rename and change types of parameters
@@ -74,6 +78,16 @@ public class FourFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_four, container, false);
+        frameLayout=view.findViewById(R.id.foro1);
+
+        frameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getContext(), seeMessages.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }

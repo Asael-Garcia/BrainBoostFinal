@@ -6,159 +6,126 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Courses.views.CourseDetails">
-
+    <!--imagen del post -->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:background="#FFE7EE">
         <ImageView
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_gravity="right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@drawable/avatar"
             />
 
-        <TextView
-            android:id="@+id/courseName"
-            android:layout_width="151dp"
-            android:layout_height="77dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="100dp"
-            android:fontFamily="@font/poppins_extrabold"
-            android:text="Desarrollo en java"
-            android:textColor="#1F1F39"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/registerCourse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="200dp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/poppins"
-            android:backgroundTint="@color/blue"
-            android:text="Inscribirse"/>
     </FrameLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    <!--Contenido del post -->
     <LinearLayout
-        android:layout_marginTop="250dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/cards"
-        android:orientation="vertical"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/course_name2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Desarrollo en java"
-                android:textColor="#1F1F39"
-                android:textSize="26sp" />
-            <TextView
-                android:id="@+id/currentState"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="No inscrito"/>
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="1dp"
-            android:layout_height="wrap_content"
-            android:text="6h 14min 24 Lecciones"/>
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="1dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:textSize="18sp"
-                android:textColor="#1F1F39"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="Acerca de este curso"/>
-            <Button
-                android:id="@+id/makeDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:text="Agendar reunion"
-                android:textAllCaps="false"
-                android:fontFamily="@font/poppins"
-                android:backgroundTint="#FF6905"/>
-        </LinearLayout>
-
-
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="250dp"
+            android:background="@drawable/cards"
+            android:orientation="vertical">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="#DDDDDD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
                 <TextView
-                    android:layout_width="match_parent"
-                    android:textAlignment="gravity"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:id="@+id/courseDescription"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/poppins"
+                    android:id="@+id/namePost"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="tor ligula sit amet turpis faucibus rhoncus. Suspendisse massa ex, condimentum vehicula ligula sed, molestie sollicitudin nunc.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget neque nec dui semper accumsan quis vel ante. Donec eros lorem, malesuada at accumsan eget, pretium eu metus. Integer vitae lacus dignissim, ullamcorper libero ut, viverra urna. Sed ante tortor, egestas quis metus vitae, maximus condimentum neque. Donec euismod congue condimentum. Quisque justo arcu, congue quis nibh porttitor, commodo porttitor urna. Etiam lobortis ante nec dolor lobortis tempus. In ullamcorper, nibh quis sollicitudin auctor, enim arcu cursus orci, ac venenatis justo arcu nec nisi. Nulla mi sapien, sodales non gravida at, commodo in tortor. Mauris non hendrerit justo. Nulla vitae arcu ornare eros vehicula lacinia nec eu libero. Nunc sit amet pharetra mauris. Suspendisse auctor ligula sit amet turpis faucibus rhoncus. Suspendisse massa ex, condimentum vehicula ligula sed, molestie sollicitudin nunc. Donec eros lorem, malesuada at accumsan eget, pretium eu metus. Integer vitae lacus dignissim, ullamcorper libero ut, viverra urna. Sed ante tortor, egestas quis metus vitae, maximus condimentum neque. Donec euismod congue condimentum. Quisque justo arcu, congue quis nibh porttitor, commodo porttitor urna. Etiam lobortis ante nec dolor lobortis tempus. In ullamcorper, nibh quis sollicitudin auctor, enim arcu cursus orci, ac venenatis justo arcu nec nisi. Nulla mi sapien, sodales non gravida at, commodo in tortor. Mauris non hendrerit justo. Nulla vitae arcu ornare eros vehicula lacinia nec eu libero. Nunc sit amet pharetra mauris. Suspendisse auctor ligula sit amet turpis faucibus rhoncus. Suspendisse massa ex, condimentum vehicula ligula sed, molestie sollicitudin nunc."
-                    />
-
-                <ImageButton
-                    android:id="@+id/arrow"
-                    android:layout_width="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/exo_2_black"
+                    android:hint="Titulo post"
+                    android:textColor="#1F1F39"
+                    android:textSize="26sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#DDDDDD">
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/down"
-                    android:background="@drawable/cards"
-                    android:layout_marginBottom="10dp"/>
-
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="1dp"
+                    android:hint="Tiempo de lectura estimado" />
             </LinearLayout>
 
-        </ScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#DDDDDD">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Acerca de este auto"
+                    android:textColor="#1F1F39"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/openAr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="#C13737"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Abrir Ar"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/content"
+                        android:layout_width="370dp"
+                        android:layout_height="230dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/poppins"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod tortor a ipsum pharetra, quis ultricies odio elementum. Maecenas accumsan elit sed elit blandit varius. Aliquam eget nunc urna. "
+                        />
+                </LinearLayout>
+
+            </ScrollView>
+
+                <Button
+                    android:id="@+id/seeComments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="right"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:backgroundTint="@color/blue"
+                    android:text="Ver comentarios"/>
+
+
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:id="@+id/fragmentContainerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
-</LinearLayout>
-
-        <!--  Contenedor de los cursos -->
 
 
 

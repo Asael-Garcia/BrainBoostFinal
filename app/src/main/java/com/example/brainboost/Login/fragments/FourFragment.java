@@ -73,32 +73,7 @@ public class FourFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content,FragmenMessages);
-        transaction.commit();
         View view=inflater.inflate(R.layout.fragment_four, container, false);
-        messages=view.findViewById(R.id.messages);
-        String hexColor1 = "#1F1F39"; //
-        String hexColor2 = "#858597"; //
-        int color1 = Color.parseColor(hexColor1);
-        int color2 = Color.parseColor(hexColor2);
-        ColorStateList backgrounGray = ColorStateList.valueOf(Color.parseColor("#F4F3FD"));
-        ColorStateList backgroundWhite = ColorStateList.valueOf(Color.parseColor("#FFFFFF"));
-        messages.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.content,FragmenMessages);
-                transaction.commit();
-                messages.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
-
-                messages.setTextColor(getResources().getColor(R.color.anotherBlue));
-
-                messages.setBackgroundTintList(backgroundWhite);
-
-            }
-        });
-
         return view;
     }
 }

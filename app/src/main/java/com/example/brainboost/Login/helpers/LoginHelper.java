@@ -46,25 +46,28 @@ public class LoginHelper {
         LoginApiService loginApiService = retrofit.create(LoginApiService.class);
         if (validarEmail(email)){
             Call<LoginRequests.LoginResponse> call = loginApiService.login(new LoginRequests.LoginBody(email, password));
-            call.enqueue(new Callback<LoginRequests.LoginResponse>() {
-                @Override
-                public void onResponse(Call<LoginRequests.LoginResponse> call, Response<LoginRequests.LoginResponse> response) {
-                    if(response.body().logged){
-                        saveId(context, response.body().id);
-                        Intent intento = new Intent(context, Home.class);
-                        context.startActivity(intento);
-                        Toast.makeText(context, "Sesion iniciada", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        Intent intento = new Intent(context, Signup.class);
-                        context.startActivity(intento);
-                    }
-                }
-                @Override
-                public void onFailure(Call<LoginRequests.LoginResponse> call, Throwable t) {
-                    Toast.makeText(context, "Error al loggear", Toast.LENGTH_SHORT).show();
-                }
-            });
+            Intent intento = new Intent(context, Home.class);
+            context.startActivity(intento);
+            Toast.makeText(context, "Sesion iniciada", Toast.LENGTH_SHORT).show();
+//            call.enqueue(new Callback<LoginRequests.LoginResponse>() {
+//                @Override
+//                public void onResponse(Call<LoginRequests.LoginResponse> call, Response<LoginRequests.LoginResponse> response) {
+//                    if(response.body().logged){
+//                        saveId(context, response.body().id);
+//                        Intent intento = new Intent(context, Home.class);
+//                        context.startActivity(intento);
+//                        Toast.makeText(context, "Sesion iniciada", Toast.LENGTH_SHORT).show();
+//                    }
+//                    else {
+//                        Intent intento = new Intent(context, Signup.class);
+//                        context.startActivity(intento);
+//                    }
+//                }
+//                @Override
+//                public void onFailure(Call<LoginRequests.LoginResponse> call, Throwable t) {
+//                    Toast.makeText(context, "Error al loggear", Toast.LENGTH_SHORT).show();
+//                }
+//            });
         }
     }
 

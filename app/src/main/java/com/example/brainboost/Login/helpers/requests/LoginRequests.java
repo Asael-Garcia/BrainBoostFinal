@@ -1,18 +1,6 @@
 package com.example.brainboost.Login.helpers.requests;
 
-class SignupData {
-    public String id;
-    public String email;
-    public String first_name;
-    public String last_name;
-    public String type;
-}
-
-
 public class LoginRequests {
-    public static class SignupResponse {
-        public SignupData data;
-    }
     public static class SignupBody {
         final String email;
         final String password;
@@ -34,7 +22,10 @@ public class LoginRequests {
         }
     }
     public static class LoginResponse {
-        public boolean logged;
-        public String id;
+        public String message;
+        public AuthResponseData data;
+    }
+    public static class SignupResponse {
+        public AuthResponseData data;
     }
 }

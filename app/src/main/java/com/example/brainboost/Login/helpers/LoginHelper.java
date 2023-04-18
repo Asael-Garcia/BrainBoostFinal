@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.util.Patterns;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.example.brainboost.Login.helpers.requests.LoginRequests;
 import com.example.brainboost.Login.views.Home;
 import com.example.brainboost.Login.views.Login;
@@ -24,11 +26,11 @@ import java.util.regex.Pattern;
 
 
 interface LoginApiService{
-    @POST("/signup")
+    @POST("/auth/signup")
     Call <LoginRequests.SignupResponse> signUp(
             @Body LoginRequests.SignupBody body
     );
-    @POST("/login")
+    @POST("/auth/login")
     Call <LoginRequests.LoginResponse> login(
             @Body LoginRequests.LoginBody body
     );
@@ -49,25 +51,23 @@ public class LoginHelper {
             Intent intento = new Intent(context, Home.class);
             context.startActivity(intento);
             Toast.makeText(context, "Sesion iniciada", Toast.LENGTH_SHORT).show();
-//            call.enqueue(new Callback<LoginRequests.LoginResponse>() {
-//                @Override
-//                public void onResponse(Call<LoginRequests.LoginResponse> call, Response<LoginRequests.LoginResponse> response) {
-//                    if(response.body().logged){
-//                        saveId(context, response.body().id);
-//                        Intent intento = new Intent(context, Home.class);
-//                        context.startActivity(intento);
-//                        Toast.makeText(context, "Sesion iniciada", Toast.LENGTH_SHORT).show();
-//                    }
-//                    else {
-//                        Intent intento = new Intent(context, Signup.class);
-//                        context.startActivity(intento);
-//                    }
-//                }
-//                @Override
-//                public void onFailure(Call<LoginRequests.LoginResponse> call, Throwable t) {
-//                    Toast.makeText(context, "Error al loggear", Toast.LENGTH_SHORT).show();
-//                }
-//            });
+            call.enqueue(new Callback<LoginRequests.LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginRequests.LoginResponse> call, @NonNull Response<LoginRequests.LoginResponse> response) {
+                    assert response.body() != null;
+                    saveId(context, response.body().data.id);
+                    Intent intent = new Intent(context, Home.class);
+                    context.startActivity(intent);
+                    Toast.makeText(context, "Sesion iniciada", Toast.LENGTH_SHORT).show();
+
+                }
+                @Override
+                public void onFailure(Call<LoginRequests.LoginResponse> call, Throwable t) {
+                    Intent intent = new Intent(context, Signup.class);
+                    context.startActivity(intent);
+                    Toast.makeText(context, "Error in login", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 

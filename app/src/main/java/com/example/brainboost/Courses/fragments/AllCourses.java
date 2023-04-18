@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.brainboost.Login.helpers.interfaces.CourseData;
 import com.example.brainboost.Login.helpers.interfaces.FetchCallback;
 import com.example.brainboost.Login.helpers.HomeHelper;
+import com.example.brainboost.Login.helpers.interfaces.PostData;
 import com.example.brainboost.Login.helpers.requests.HomeRequests;
 import com.example.brainboost.R;
 
@@ -27,6 +27,7 @@ public class AllCourses extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getPosts();
     }
 
     @Override
@@ -34,28 +35,27 @@ public class AllCourses extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_all_courses, container, false);
-//        homeHelper.getAllCourses(getContext(), new FetchCallback<List<CourseData>>() {
-//            @Override
-//            public void onSuccess(List<CourseData> response) {
-//                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                for(CourseData course: response) {
-////                    createLayout(view, course.name, (course.User.first_name + " " + course.User.last_name), course.Lessons.size(), course.id);
-//                    Bundle bundle = new Bundle();
-//
-//                    bundle.putString("name", course.name);
-//                    bundle.putString("teacher_name", (course.User.first_name + " " + course.User.last_name));
-//
-//                    bundle.putInt("lessons", course.Lessons.size());
-//
-//                    bundle.putString("id", course.id);
-//
-//                    fragmentTransaction.add(R.id.contentPanel, Course.class, bundle);
-//
-//                }
-//                fragmentTransaction.commit();
-//            }
-//        });
+//        getPosts();
         return view;
+    }
+    public void getPosts(){
+        homeHelper.getAllPosts(getContext(), new FetchCallback<List<PostData>>() {
+            @Override
+            public void onSuccess(List<PostData> response) {
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                for(PostData post: response) {
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("title", post.title);
+                    bundle.putString("author", (post.User.first_name + " " + post.User.last_name));
+
+                    bundle.putString("id", post.id);
+                    bundle.putString("date", post.created_at);
+                    fragmentTransaction.add(R.id.contentPanel, Course.class, bundle);
+                }
+                fragmentTransaction.commit();
+            }
+        });
     }
 }

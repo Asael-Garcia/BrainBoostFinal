@@ -19,7 +19,6 @@ import com.example.brainboost.Login.fragments.FourFragment;
 import com.example.brainboost.Login.fragments.SecondFragment;
 import com.example.brainboost.Login.fragments.ThirdFragment;
 
-import com.example.brainboost.Login.helpers.interfaces.CourseData;
 import com.example.brainboost.Login.helpers.interfaces.FetchCallback;
 import com.example.brainboost.Login.helpers.HomeHelper;
 import com.example.brainboost.Login.helpers.requests.HomeRequests;
@@ -53,12 +52,12 @@ public class Home extends AppCompatActivity {
             startActivity(intent);
         }
         loadFragment(firstFragment);
-        homeHelper.getMyCourses(this, new FetchCallback<List<CourseData>>() {
-            @Override
-            public void onSuccess(List<CourseData> response) {
-
-            }
-        });
+//        homeHelper.getMyCourses(this, new FetchCallback<List<CourseData>>() {
+//            @Override
+//            public void onSuccess(List<CourseData> response) {
+//
+//            }
+//        });
     }
     private final BottomNavigationView.OnItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnItemSelectedListener() {
         @Override

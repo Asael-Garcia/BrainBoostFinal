@@ -16,11 +16,15 @@ import android.widget.TextView;
 import com.example.brainboost.Courses.views.CourseDetails;
 import com.example.brainboost.R;
 
-public class Course extends Fragment {
-    TextView nameText;
-    TextView teacherText;
-    String id;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+public class Course extends Fragment {
+    TextView titleText;
+    TextView authorText;
+    String id;
+    TextView dateText;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,15 +36,23 @@ public class Course extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_course, container, false);
         Bundle bundle = getArguments();
-        nameText = view.findViewById(R.id.name);
-        teacherText = view.findViewById(R.id.teacher);
-
+        titleText = view.findViewById(R.id.name);
+        authorText = view.findViewById(R.id.teacher);
+        dateText = view.findViewById(R.id.date);
         if(bundle != null) {
-            String name = bundle.getString("name");
-            String teacher_name = bundle.getString("teacher_name");
+            String title = bundle.getString("title");
+            String author = bundle.getString("author");
+            String date = bundle.getString("date");
+            Date created = null;
+            try {
+                created = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse((date));
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
             id = bundle.getString("id");
-            nameText.setText(name);
-            teacherText.setText(teacher_name);
+            titleText.setText(title);
+            authorText.setText(author);
+            dateText.setText(new SimpleDateFormat("dd-MM-YYYY").format(created));
         }
 
         view.setOnClickListener(new View.OnClickListener() {

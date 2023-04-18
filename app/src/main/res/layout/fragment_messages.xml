@@ -107,7 +107,8 @@
                 android:textColor="#858597"
                 android:fontFamily="@font/poppins"
                 android:text="Jaja que wey no jala"/>
-        </FrameLayout><FrameLayout
+        </FrameLayout>
+        <FrameLayout
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -155,7 +156,8 @@
             android:textColor="#858597"
             android:fontFamily="@font/poppins"
             android:text="Jaja que wey no jala"/>
-    </FrameLayout><FrameLayout
+    </FrameLayout>
+        <FrameLayout
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -203,7 +205,8 @@
             android:textColor="#858597"
             android:fontFamily="@font/poppins"
             android:text="Jaja que wey no jala"/>
-    </FrameLayout><FrameLayout
+    </FrameLayout>
+        <FrameLayout
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"

@@ -53,6 +53,8 @@ public class CourseDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_details);
+
+        /* PAUSADO DE MOMENTO
         description = findViewById(R.id.courseDescription);
         title = findViewById(R.id.courseName);
         status = findViewById(R.id.currentState);
@@ -195,7 +197,7 @@ public class CourseDetails extends AppCompatActivity {
                 AlertDialog alert = builder.create();
                 alert.show();
             }
-        });
+        });*/
 
     }
 

@@ -25,14 +25,14 @@
                     android:textColor="@color/white"
                     android:fontFamily="@font/poppins_bold"
                     android:textSize="25sp"
-                    android:text="Valdivia"/>
+                    android:text="Foro 1"/>
                 <TextView
                     android:layout_marginLeft="20dp"
                     android:layout_width="match_parent"
                     android:fontFamily="@font/poppins"
                     android:textColor="#9AFFFFFF"
                     android:layout_height="wrap_content"
-                    android:text="Ultima conexión: hace 10min"/>
+                    android:text="400 usuarios en este momento"/>
             </LinearLayout>
             <ScrollView
                 android:layout_width="match_parent"
@@ -41,6 +41,244 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+                    <!--cada mensaje-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Vin Disel:"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/avatar"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="hola como le va a todos"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="20dp"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <!--cada mensaje-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Vin Disel:"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/avatar"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="hola como le va a todos"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="20dp"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <!--cada mensaje-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Vin Disel:"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/avatar"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="hola como le va a todos"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="20dp"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <!--cada mensaje-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Vin Disel:"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/avatar"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="hola como le va a todos"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="20dp"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <!--cada mensaje-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Vin Disel:"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/avatar"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="hola como le va a todos"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="20dp"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <!--cada mensaje-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Vin Disel:"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/avatar"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="hola como le va a todos"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="20dp"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <!--cada mensaje-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20dp"
+                            android:text="Vin Disel:"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/avatar"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="hola como le va a todos"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="20dp"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
             </ScrollView>

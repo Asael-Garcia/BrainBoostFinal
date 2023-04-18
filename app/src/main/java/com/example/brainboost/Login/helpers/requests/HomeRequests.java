@@ -13,4 +13,9 @@ public class HomeRequests {
     public static class SubscribeToCourse {
         public String msg;
     }
+
+    public static class CreatePostResponse {
+        public String message;
+        public PostData data;
+    }
 }

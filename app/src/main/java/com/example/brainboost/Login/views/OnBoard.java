@@ -27,10 +27,10 @@ public class OnBoard extends AppCompatActivity {
     int stepIndex=0;
     LoginHelper loginHelper = new LoginHelper();
     String [] stepImages={"onboarding1.png","onboarding2.png","onboarding3.png"};
-    String [] stepTittles={"Varias pruebas de cursos gratuitios","Rapido y facil de aprender","Crea tu propio plan de estudio"};
-    String [] stepInformation={"Cursos gratuitos para que encuentres tu camino hacia el aprendizaje",
-            "Aprendizaje fácil y rápido en cualquier momento para ayudarte a mejorar varias habilidades",
-            "Estudia de acuerdo con el plan de estudio, haz que el estudio sea más interesante."};
+    String [] stepTittles={"Explora nuestra variedad de autos","Aprende y diviertete","Comparte tu conocimiento"};
+    String [] stepInformation={"Cientos de post con una gran variedad sobre la historia de los automoviles",
+            "Aprendizaje fácil y didactico para tu comodidad",
+            "Comparte tu conocimiento y opiniones en nuetros foros y tus propios posts."};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

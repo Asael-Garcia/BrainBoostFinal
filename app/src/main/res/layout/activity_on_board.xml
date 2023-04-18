@@ -23,7 +23,7 @@
         android:layout_height="106dp"
         android:layout_marginTop="48dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Varias pruebas de cursos gratuitos"
+        android:text="Explora nuestra variedad de autos"
         android:textAlignment="center"
         android:textColor="#1F1F39"
         android:textSize="24sp"
